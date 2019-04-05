@@ -29,11 +29,13 @@ button {
 }
 
 #gameConsoleContainer {
+	display: flex;
 	border: 3px solid green;
 
 }
 
 #buttonsContainer {
+
 	margin: auto;
   	width: 75%;
   	border: 3px solid green;
@@ -41,7 +43,6 @@ button {
 }
 
 #redButton {
-	order: 0;
 	margin: auto;
   	width: 50%;
   	border: 3px solid white;
@@ -50,7 +51,7 @@ button {
 }
 
 #yellowButton {
-	order: 1;
+	font-weight: 700;
 	margin: auto;
   	height: 50%;
   	background-color: yellow;
@@ -78,7 +79,6 @@ button {
 }
 
 #blueButton {
-	order: 2;
 	margin: auto;
   	width: 50%;
   	border: 3px solid white;
@@ -87,7 +87,7 @@ button {
 }
 
 #greenButton {
-	order: 3;
+	font-weight: 700;
 	margin: auto;
   	height: 50%;
   	background-color: green;
