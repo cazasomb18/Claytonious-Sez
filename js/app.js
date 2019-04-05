@@ -1,5 +1,13 @@
 console.log('PROJECT ONE - CLAYTON COMMANDS');
 
+class pattern {
+	constructor(){
+		red = this.red;			//trying to randomize order and instances of
+		yellow this.yellow;
+		blue = this.blue;
+		green = this.green;
+	}
+}
 
 
 
@@ -19,6 +27,14 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 
 
+const app = {
+	timer = 0,		//round will end when timer has ended
+	PlayGame(){				//game will run off of this func
+
+	}
+
+
+}
 
 
 
@@ -29,9 +45,13 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 
 
+playerInput() => {
+	arrPlayer = [];
+}
 
-
-
+appInput() => {
+	arrApp = [];
+}
 
 
 
@@ -44,7 +64,6 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 
 //listeners/handlers
-
 
 document.addEventListener("keydown", (e) => {
 	if(['ArrowUp'].includes(event.key)){
@@ -70,34 +89,9 @@ document.addEventListener("keydown", (e) => {
 	}
 });
 
-// document.addEventListener('keydown', (event) => {
-//   if(['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
-//     cmdrCircle.move(event.key)
-//   }
 
-// $("#redButton").on('keydown', (e) => {
-//     console.log('redButton was clicked');
 
-//      console.log(``);
-// });
 
-// $("#yellowButton").on('keydown', (e) => {
-//     console.log('yellowButton was clicked');
-    
-//     console.log(``);
-// });
-
-// $("#blueButton").on('keydown', (e) => {
-//     console.log('blueButton was clicked');
-
-//     console.log(``);
-// });
-
-// $("#greenButton").on('keydown', (e) => {
-//     console.log('greenButton was clicked');
-
-//      console.log(``);
-// });
 
 
 

@@ -30,6 +30,7 @@ button {
 
 #gameConsoleContainer {
 	display: flex;
+	justify-content: space-around;
 	border: 3px solid green;
 
 }
