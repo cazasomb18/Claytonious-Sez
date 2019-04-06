@@ -1,18 +1,19 @@
 console.log('PROJECT ONE - CLAYTON COMMANDS');
 
-class pattern {
-	constructor(){
-		red = this.red;			//trying to randomize order and instances of
-		yellow this.yellow;
-		blue = this.blue;
-		green = this.green;
-	}
-}
+// class pattern {
+// 	constructor(){
+// 		red = this.red;			//trying to randomize order and instances of
+// 		yellow this.yellow;
+// 		blue = this.blue;
+// 		green = this.green;
+// 	}
+// }
 
 
+// testing logic constructors
 
-
-
+// randInt = Math.floor(Math.random()*4)+1;
+// console.log(randInt);
 
 
 
@@ -28,33 +29,41 @@ class pattern {
 
 
 const app = {
-	timer = 0,		//round will end when timer has ended
-	PlayGame(){				//game will run off of this func
+	// timer = 0,		//round will end when timer has ended
+	// playGame(){		//game will run off of this func
+		
 
-	}
+	// },
+	playerInput: function (){		//get input from user to be pushed into this array...
+		let arrPlayer = [''];		
+	},	
+	arrOutputLvlOne: function (){			//
+		let arrApp = [''];
+		const arrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];		  //jQuery selectors? $""
+		const randIntOneandFour = Math.floor(Math.random()*4)+1;
+		for (let i = 1; i >= 5; i++){
+			(console.log(arrColorValues[randIntOneandFour]));
+		}
+	},
 
 
 }
 
+console.log(app.arrOutputLvlOne());
+
+
+
+
+
+// we are pushing a bunch of random elements into an array 4 elements ramdomized into an array.
 
 
 
 
 
 
-
-
-
-playerInput() => {
-	arrPlayer = [];
-}
-
-appInput() => {
-	arrApp = [];
-}
-
-
-
+//if playerInput.arrPlayer === appInput.arrApp --> you win ${display message you're a winner}
+//else --> you lose ${display message you're a loser}
 
 
 
@@ -88,10 +97,6 @@ document.addEventListener("keydown", (e) => {
 	console.log('greenButton was pressed.')	
 	}
 });
-
-
-
-
 
 
 
