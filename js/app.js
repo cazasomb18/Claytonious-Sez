@@ -10,17 +10,13 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 // }
 
 
-// testing logic constructors
-
-// console.log(randInt);
-
-
 
 
 
 
 const colorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];
-randInt = Math.floor(Math.random()*4)+1;
+randInt = Math.floor(Math.random()*4);
+console.log(randInt);
 console.log(colorValues[randInt]);
 
 
@@ -41,18 +37,18 @@ const App = {
 	arrOutputLvlOne: function (){			//
 		let arrApp = [''];
 		const arrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];		  //jQuery selectors? $""
-		const randIntOneandFour = Math.floor(Math.random()*4)+1;
+		const randIntOneandFour = Math.floor(Math.random()*4);
+		// console.log(arrColorValues[randIntOneandFour]);
 		for (let i = 1; i >= 5; i++){
-			arrColorValues[randIntOneandFour];
+			console.log(arrColorValues[randIntOneandFour]);
 		}
-	},
-
-
-}
+	}
+};
 
 console.log(App.arrOutputLvlOne());
 
-
+//if playerInput.arrPlayer === appInput.arrApp --> you win ${display message you're a winner}
+//else --> you lose ${display message you're a loser}
 
 
 
@@ -63,8 +59,6 @@ console.log(App.arrOutputLvlOne());
 
 
 
-//if playerInput.arrPlayer === appInput.arrApp --> you win ${display message you're a winner}
-//else --> you lose ${display message you're a loser}
 
 
 
