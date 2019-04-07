@@ -29,22 +29,23 @@ button {
 }
 
 #buttonsContainer {
-
-	margin: auto;
+	/*display: flex;*/
+	/*margin: auto;*/
   	width: 75%;
   	border: 3px solid green;
   	padding: 10px;
+	flex-direction: row-reverse;
 }
 
 #gameConsoleContainer {
-	display: flex;
+	/*display: flex;*/
 	justify-content: space-around;
 	border: 3px solid green;
 
 }
 
 #redButton {
-	margin: auto;
+	/*margin: auto;*/
   	/*width: 50%;*/
   	border: 3px solid white;
   	padding: 10px;
@@ -53,7 +54,7 @@ button {
 
 #yellowButton {
 	font-weight: 700;
-	margin: auto;
+	/*margin: auto;*/
   	/*height: 50%;*/
   	background-color: yellow;
   	position: relative;
@@ -80,7 +81,7 @@ button {
 }
 
 #blueButton {
-	margin: auto;
+	/*margin: auto;*/
   	/*width: 50%;*/
   	border: 3px solid white;
   	padding: 10px;
@@ -89,10 +90,10 @@ button {
 
 #greenButton {
 	font-weight: 700;
-	margin: auto;
+	/*margin: auto;*/
   	/*height: 50%;*/
   	background-color: green;
-  	position: relative;
+/*  	position: relative;*/
   	/*width: 60px;*/
   	border: 3px solid white;
   	padding: 10px;
