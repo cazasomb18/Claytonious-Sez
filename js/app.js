@@ -23,6 +23,7 @@ const App = {
 	playGame(){		//game will run off of this fun
 		this.arrOutput();	//output will display
 		//could I insert a function here to have a timer run while the user enters input??
+		
 		this.arrPlayerInput();  //input collected from user here
 		this.winOrLose();		//win/lose() compares arrs and displays msg to console display
 	},
