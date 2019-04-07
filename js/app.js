@@ -26,26 +26,27 @@ console.log(colorValues[randInt]);
 
 
 const App = {
-	// timer = 0,		//round will end when timer has ended
-	// playGame(){		//game will run off of this func
-		
+	timerHandle: 0,		//round will end when timer has ended
+	playGame(){		//game will run off of this func
+		this.arrOutput();
 
-	// },
+	},
+	arrOutput: function (){			//
+			let arrApp = [];
+		// for (let i = 0; i > 4; i++){
+			const arrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];		  //jQuery selectors? $""
+			const randIntZeroAndThree = Math.floor(Math.random()*4);
+			arrApp.push(arrColorValues[randIntZeroAndThree]);
+			console.log(arrApp);
+		// }
+	},
 	playerInput: function (){		//get input from user to be pushed into this array...
 		let arrPlayer = [''];		
 	},	
-	arrOutputLvlOne: function (){			//
-		let arrApp = [''];
-		const arrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];		  //jQuery selectors? $""
-		const randIntOneandFour = Math.floor(Math.random()*4);
-		// console.log(arrColorValues[randIntOneandFour]);
-		for (let i = 1; i >= 5; i++){
-			console.log(arrColorValues[randIntOneandFour]);
-		}
-	}
 };
 
-console.log(App.arrOutputLvlOne());
+App.playGame();
+	
 
 //if playerInput.arrPlayer === appInput.arrApp --> you win ${display message you're a winner}
 //else --> you lose ${display message you're a loser}

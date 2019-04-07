@@ -28,19 +28,19 @@ button {
 	padding: 10px;
 }
 
-#gameConsoleContainer {
-	display: flex;
-	justify-content: space-around;
-	border: 3px solid green;
-
-}
-
 #buttonsContainer {
 
 	margin: auto;
   	width: 75%;
   	border: 3px solid green;
   	padding: 10px;
+}
+
+#gameConsoleContainer {
+	display: flex;
+	justify-content: space-around;
+	border: 3px solid green;
+
 }
 
 #redButton {
