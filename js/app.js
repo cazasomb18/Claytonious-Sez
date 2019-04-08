@@ -222,75 +222,91 @@ const App = {
 //add events for every key press:  when arrOutput receives new E light up btn
 //add events for every key press:  when arrInput receives new keypress light up btn
 
-document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-	if(['ArrowUp'].includes(event.key)){			// "ArrowUp" === keydown 38.
-		console.log('redButton was pressed.');
-		App.arrPlayer.push(App.arrColorValues[0]);
-		console.log(App.arrPlayer);
-		// document.getElementById('redButton').css({opacity: 0.7}) // want opacity of button to change on keydown
-	}
-});
 
-// $(document.keypress((e) => {
-// 	if(['ArrowUp'].includes(event.key)){
+// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
+// 	if(['ArrowUp'].includes(event.key)){			// "ArrowUp" === keydown 38.
 // 		console.log('redButton was pressed.');
 // 		App.arrPlayer.push(App.arrColorValues[0]);
 // 		console.log(App.arrPlayer);
+// 		let redButton = document.getElementById('redButton');
 // 	}
-// }));
+// });
 
-document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-	if(['ArrowRight'].includes(event.key)){			// "ArrowRight" === keydown 39;
-		console.log('yellowButton was pressed.');
-		App.arrPlayer.push(App.arrColorValues[1]);
-		console.log(App.arrPlayer);
-	}
-});
-
-// $(document.keypress((e) => {
-// 	if(['ArrowRight'].includes(event.key)){
+// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
+// 	if(['ArrowRight'].includes(event.key)){			// "ArrowRight" === keydown 39;
 // 		console.log('yellowButton was pressed.');
 // 		App.arrPlayer.push(App.arrColorValues[1]);
 // 		console.log(App.arrPlayer);
+// 		let yellowButton = document.getElementById('yellowButton');
 // 	}
-// }));
+// });
 
-document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-	if(['ArrowDown'].includes(event.key)){			// "ArrowDown" === keydown 40;
+// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
+// 	if(['ArrowDown'].includes(event.key)){			// "ArrowDown" === keydown 40;
+// 		console.log('blueButton was pressed.');
+// 		App.arrPlayer.push(App.arrColorValues[2]);
+// 		console.log(App.arrPlayer);
+// 		let blueButton = document.getElementById('blueButton');
+// 		blueButton.CSS({opacity: 0.7})
+// 	}
+// });
+
+// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
+// 	if(['ArrowLeft'].includes(event.key)){			// "ArrowLeft" === keydown 37
+// 		console.log('greenButton was pressed.');
+// 		App.arrPlayer.push(App.arrColorValues[3]);
+// 		console.log(App.arrPlayer);
+// 		let greenButton = document.getElementById('greenButton');
+// 	}
+// });
+
+
+$(document).on('keydown',((e) => {
+	if(['ArrowUp'].includes(event.key)){
+		console.log('redButton was pressed.');
+		App.arrPlayer.push(App.arrColorValues[0]);
+		console.log(App.arrPlayer);
+		$('#redButton').css('backgroundColor', 'azure');
+	}
+}));
+
+$(document).on('keyup', ((e) => {
+	if(['ArrowUp'].includes(event.key)){
+		$('#redButton').css('backgroundColor', 'rgb(255,0,0)');
+	}
+}))
+
+$(document).on('keydown',((e) => {
+	if(['ArrowRight'].includes(event.key)){
+		console.log('yellowButton was pressed.');
+		App.arrPlayer.push(App.arrColorValues[1]);
+		console.log(App.arrPlayer);
+		$('#yellowButton').css('backgroundColor', 'azure');
+	}
+}));
+
+$(document).on('keyup', ((e) => {
+	if(['ArrowRight'].includes(event.key)){
+		$('#yellowButton').css('backgroundColor', 'yellow')
+	}
+}))
+
+$(document).on('keydown', function (e) {
+	if (['ArrowDown'].includes(event.key)){
 		console.log('blueButton was pressed.');
 		App.arrPlayer.push(App.arrColorValues[2]);
 		console.log(App.arrPlayer);
 	}
 });
 
-// $(document.keypress((e) => {
-// 	if(['ArrowDown'].includes(event.key)){
-// 		console.log('blueButton was pressed.');
-// 		App.arrPlayer.push(App.arrColorValues[2]);
-// 		console.log(App.arrPlayer);
-// 	}
-// }))
-
-document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-	if(['ArrowLeft'].includes(event.key)){			// "ArrowLewft" === keydown 37
+$(document).on('keydown', ((e) => {
+	if (['ArrowLeft'].includes(event.key)){
 		console.log('greenButton was pressed.');
 		App.arrPlayer.push(App.arrColorValues[3]);
 		console.log(App.arrPlayer);
 	}
-});
+}));
 
-// $(document.keypress((e) => {
-// 	if(['ArrowLeft'].includes(event.key)){
-// 		console.log('greenButton was pressed.');
-// 		App.arrPlayer.push(App.arrColorValues[3]);
-// 		console.log(App.arrPlayer);
-// 	}
-// }))
-
-// document.getElementById("nameButton").addEventListener("click", function(){
-// 	document.getElementById("topDisplayContainer").innterHTML = `${#nameButton}`.val()};
-// 	App.playGame()
-// })	
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
 													//display `${'#userNameBox.val()'`}name in top display <div>....
@@ -298,6 +314,12 @@ document.addEventListener("keydown", (e) => {		//need to add animation logic for
 // 	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
 // 	App.playGame();
 // });
+
+// document.getElementById("nameButton").addEventListener("click", function(){
+// 	document.getElementById("topDisplayContainer").innterHTML = `${#nameButton}`.val()};
+// 	App.playGame()
+// })	
+
 
 
 
