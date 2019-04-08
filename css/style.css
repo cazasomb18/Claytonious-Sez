@@ -15,8 +15,6 @@ button {
 }
 
 #topDisplayContainer {
-	display: flex-box;
-	justify-content: center;
 	margin: 0 auto;
 	width: 500px;
 	height: 100px;
@@ -27,7 +25,7 @@ button {
 	background-color: black;
 	color: white;
 	border-radius: 8px;
-	justify-content: center;
+	margin: 0 auto;
 
 }
 
@@ -39,24 +37,20 @@ button {
 }
 
 #buttonsContainer {
-	display: flex-box;
-	/*margin: auto;*/
+	margin: 0 auto;
   	width: 75%;
   	border: 3px solid green;
   	padding: 10px;
-  	justify-content: center:;
 }
 
 #gameConsoleContainer {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	border: 3px solid green;
 
 }
 
 #redButton {
-	/*margin: auto;*/
-  	/*width: 50%;*/
   	border: 3px solid white;
   	padding: 10px;
   	background-color: rgb(255,0,0);
@@ -64,50 +58,41 @@ button {
 
 #yellowButton {
 	font-weight: 700;
-	/*margin: auto;*/
-  	/*height: 50%;*/
   	background-color: yellow;
-  	position: relative;
-  	/*width: 60px;*/
   	border: 3px solid white;
   	padding: 10px;
 }
 
-#gameMessagesContainer {
+#programMessagesContainer {
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 10px;
-	width: 300px;
-	height: 300px;
+	max-width: 350px;
+	/*height: 300px;*/
 	border: 3px solid red;
 }
 
-#programMessagesDisplay {
+#gameMessagesDisplay {
 	margin: 0 auto;
 	padding: 10px;
-	width: 250px;
-	height: 250px;
+	max-width: 300px;
+	/*height: 250px;*/
 	border: 3px solid orange;
 }
 
+#greenButton {
+	font-weight: 700;
+  	background-color: green;
+  	border: 3px solid white;
+  	padding: 10px;
+}
+
 #blueButton {
-	/*margin: auto;*/
-  	/*width: 50%;*/
   	border: 3px solid white;
   	padding: 10px;
   	background-color: blue;
 }
 
-#greenButton {
-	font-weight: 700;
-	/*margin: auto;*/
-  	/*height: 50%;*/
-  	background-color: green;
-/*  	position: relative;*/
-  	/*width: 60px;*/
-  	border: 3px solid white;
-  	padding: 10px;
-}
 
 
 

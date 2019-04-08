@@ -1,12 +1,18 @@
 console.log('PROJECT ONE - CLAYTON COMMANDS');
 
-// class Game {
-// 	constructor(){
-// 		new App.playGame();
+// class Sequence {
+// 	constructor() {
+// 		let (this.seqRandInt) = App.randIntZeroAndThree;
+// 		let (this.seqArrColorValues) = App.arrColorValues;
+// 		let seqOutput = (this.arrApp).push(this.seqArrColorValues[this.seqRandInt]);
+// 		console.log(this.seqOutput);
 // 	}
-// }
+// };
 
-// currentGame();
+// const sequence = new Sequence();
+
+// sequence();
+
 
 
 
@@ -19,8 +25,10 @@ const App = {
 	arrApp: [],
 	arrPlayer: [],
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
-
-	playGame(){		//game will run off of this fun
+	playGame(){		//game will run off of this func
+		// enterName();
+		// const sequence = new Sequence();
+		//here we need to delcare a variable for the new sequence to refer top
 		this.arrOutput();	//output will display
 		//could I insert a function here to have a timer run while the user enters input??
 
@@ -31,32 +39,36 @@ const App = {
 
 	},
 	arrOutput(){
-			let arrApp = App.arrApp;
+			let arrAppOutput = App.arrApp;
 			let arrColorValues = App.arrColorValues;		  //jQuery selectors? $""
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
-			arrApp.push(arrColorValues[randIntZeroAndThree]);
-			console.log(arrApp);
+			this.arrApp.push(arrColorValues[randIntZeroAndThree]);
+			console.log(arrAppOutput);
 	},
 	playerInput(){		//each time keystrokes are pressed push that value into array.
 		// let arrPlayer = App.arrPlayer;
-		console.log(App.arrPlayer);	//add timer function that forces user to enter strokes in set amount of time...
+		console.log(App.arrPlayer);
 
 //you need logic here that resets App.arrPlayer everytime a new value is added to App.arrApp.
 		setTimeout( function(){
-			if (this.arrApp === this.arrPlayer){
+			if (this.arrAppOutput === this.arrPlayer){
 				console.log(`You managed to do ONE THING RIGHT... I guess...`)
 				//also display this message to the game console msg center...
-				this.gameCounter ++;
-			} else {
-				console.log(`You have ONE JOB!!! You BLEW IT!!!`);
-				//also display this message to the game console msg center...
-				this.gameCounter === App.gameCounter;
-			}
-		}, 5000/*, p1, p2*/) //timer is working the way intended you have 10 seconds to have the user 
+				App.gameCounter ++;
+				App.playGame();
+			} else if (this.arrAppOutput != this.arrPlayer) {
+					console.log(`You have ONE JOB!!! You BLEW IT!!!`);
+					//also display this message to the game console msg center...
+					let gameCounter = this.gameCounter;
+				}
+		}, 5000/*, p1, p2*/) //timer is working the way intended you have 5 seconds to enter correct input
 
 
 	}
-};
+}
+
+
+
 	// winOrLose(){
 	// 	if (App.arrOutput === App.playerInput) {  //win/loose logic and messages.
 	// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
@@ -122,6 +134,12 @@ document.addEventListener("keydown", (e) => {		//need to add animation logic for
 	console.log(App.arrPlayer);
 	}
 });
+
+// document.getElementById("nameButton").addEventListener("click", function(){
+// 	document.getElementById("topDisplayContainer").innterHTML = `${#nameButton}`.val()};
+// 	App.playGame()
+
+// })	
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
 													//display `${'#userNameBox.val()'`}name in top display <div>....
