@@ -65,33 +65,72 @@ const App = {
 
 	},
 	arrOutput(){
-			// let arrAppOutput = App.arrApp;
-			// let arrColorValues = App.arrColorValues;	  //jQuery selectors? $""
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
 			this.arrApp.push(this.arrColorValues[randIntZeroAndThree]);
 			console.log(this.arrApp);
 	},
-	playerInput(){		
-		// let arrPlayer = App.arrPlayer;
-		// console.log(App.arrPlayer); //each time keystrokes are pressed push that value into array.
-		setTimeout( function(){
-			for (i = 0; i < App.arrApp.length; i++){
-				let AppOutput = App.arrApp/*[i]*/;
-				let PlayerInput = App.arrPlayer/*[i]*/;
-				if (AppOutput[i] === PlayerInput[i]){
-					console.log(`You managed to do ONE THING RIGHT... sorta...`)
-					App.gameCounter ++;
-					App.arrPlayer = [];
-					App.playGame();
-				} else {
-					if (AppOutput[i] !== PlayerInput[i]){
-					console.log(`You had ONE JOB!! You BLEW IT!!!`)
-					// App.gameCounter === App.gameCounter;
-					}
+	playerInput() {
+		setTimeout(() => {
 
-				}
-
+		if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
+			console.log("Woaaah! You aren't color-blind!")
+		} else {
+			console.log('YOU BLEW IT!!!')
 			}
+		}, 5000)
+	}
+};
+		// number of buttons user has pressed === this.arrPlayer.length
+		// so check the (this.arrPlayer.length - 1)th element of both arrays
+
+		// if they match
+			// cancel old timeout
+			// add new color -- arrOutput()
+			// start a new timeout -- add this later, after sequence is working
+				// in timeout:
+				// count down
+				// if count reaches 0 -- gameOver()
+
+		// else
+			// game over
+			// prompt reset the game
+
+
+
+
+
+
+
+
+
+
+		// setTimeout(() => {
+
+
+
+
+
+			// for (let i = 0; i < this.arrApp.length; i++){
+			// 	let AppOutput = this.arrApp/*[i]*/;
+			// 	let PlayerInput = this.arrPlayer/*[i]*/;
+			// 	if (AppOutput[i] === PlayerInput[i]){
+			// 		// console.log(`You managed to do ONE THING RIGHT... sorta...`)
+			// 		// App.gameCounter ++;
+			// 		// App.arrPlayer = [];
+
+			// 		// App.playGame();
+
+			// 	} else {
+			// 		if (AppOutput[i] !== PlayerInput[i]){
+
+			// 			console.log(`You had ONE JOB!! You BLEW IT!!!`)
+			// 			App.gameCounter === App.gameCounter;  need additional logic here that STOPS TIMER AND ENDS ROUND!!!
+			// 		}
+
+			// 	}
+
+			// } // for
+
 		// }
 		// 	if (this.arrApp === this.arrPlayer){
 		// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
@@ -104,11 +143,11 @@ const App = {
 					//also display this message to the game console msg center...
 					// let gameCounter = this.gameCounter; gamecounter stays the same...
 				//}
-		}, 5000/*, p1, p2*/) //timer is working the way intended you have 5 seconds to enter correct input
+// 		}, 5000/*, p1, p2*/) //timer is working the way intended you have 5 seconds to enter correct input
 
 
-	}
-}
+// 	}
+// };
 
 
 
@@ -147,34 +186,34 @@ const App = {
 
 document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
 	if(['ArrowUp'].includes(event.key)){			// "ArrowUp" === keydown 38.
-	console.log('redButton was pressed.');
-	App.arrPlayer.push(App.arrColorValues[0]);
-	console.log(App.arrPlayer);
+		console.log('redButton was pressed.');
+		App.arrPlayer.push(App.arrColorValues[0]);
+		console.log(App.arrPlayer);
 	}
 });
 
 document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
 	if(['ArrowRight'].includes(event.key)){			// "ArrowRight" === keydown 39;
-	console.log('yellowButton was pressed.');
-	App.arrPlayer.push(App.arrColorValues[1]);
-	console.log(App.arrPlayer);
+		console.log('yellowButton was pressed.');
+		App.arrPlayer.push(App.arrColorValues[1]);
+		console.log(App.arrPlayer);
 
 	}
 });
 
 document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
 	if(['ArrowDown'].includes(event.key)){			// "ArrowDown" === keydown 40;
-	console.log('blueButton was pressed.');
-	App.arrPlayer.push(App.arrColorValues[2]);
-	console.log(App.arrPlayer);
+		console.log('blueButton was pressed.');
+		App.arrPlayer.push(App.arrColorValues[2]);
+		console.log(App.arrPlayer);
 	}
 });
 
 document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
 	if(['ArrowLeft'].includes(event.key)){			// "ArrowLewft" === keydown 37
-	console.log('greenButton was pressed.');
-	App.arrPlayer.push(App.arrColorValues[3]);
-	console.log(App.arrPlayer);
+		console.log('greenButton was pressed.');
+		App.arrPlayer.push(App.arrColorValues[3]);
+		console.log(App.arrPlayer);
 	}
 });
 
