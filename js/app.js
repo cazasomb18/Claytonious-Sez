@@ -52,6 +52,7 @@ const App = {
 	arrApp: [],
 	arrPlayer: [],
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
+	time: 0,
 	playGame(){		//game will run off of this func
 		// enterName();
 		// const sequence = new Sequence();
@@ -70,19 +71,39 @@ const App = {
 			console.log(this.arrApp);
 	},
 	playerInput() {
-		setTimeout(() => {
+		this.time = setTimeout(() => {
 
 		if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 			console.log("Woaaah! You aren't color-blind!")
+			this.arrPlayer = [];
+			this.arrOutput();
+			// this.playGame();
+
 		} else {
-			console.log('YOU BLEW IT!!!')
+			console.log('You had ONE JOB!!! YOU BLEW IT!!!');
+			this.clearTimeout();
+			this.gameReset();
 			}
-		}, 5000)
+		}, 5000);
+	},
+	gameReset(){
+		App.playGame();
+	},
+	clearTimeout(){
+		clearTimeout(this.time);
+		if (this.time === 0);
+		this.gameOver();
+	},
+	winOrLose(){
+		if (this.arrApp[this.arrApp.length-1] === this.arrPlayer[this.arrPlayer.length-1]);
+	},
+	gameOver(){
+		console.log('You have failed and the game is over!');
+
 	}
 };
 		// number of buttons user has pressed === this.arrPlayer.length
 		// so check the (this.arrPlayer.length - 1)th element of both arrays
-
 		// if they match
 			// cancel old timeout
 			// add new color -- arrOutput()
@@ -97,6 +118,16 @@ const App = {
 
 
 
+	// winOrLose(){
+	// 	if (App.arrOutput === App.playerInput) {  //win/loose logic and messages.
+	// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
+	// 		App.counter ++;
+	// 	} else {
+	// 		console.log('You had ONE JOB!!! You BLEW IT!!!');
+
+	// 	}
+	// }
+/*};*/
 
 
 
@@ -151,16 +182,6 @@ const App = {
 
 
 
-	// winOrLose(){
-	// 	if (App.arrOutput === App.playerInput) {  //win/loose logic and messages.
-	// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
-	// 		App.counter ++;
-	// 	} else {
-	// 		console.log('You had ONE JOB!!! You BLEW IT!!!');
-
-	// 	}
-	// }
-/*};*/
 
 
 
@@ -189,6 +210,7 @@ document.addEventListener("keydown", (e) => {		//need to add animation logic for
 		console.log('redButton was pressed.');
 		App.arrPlayer.push(App.arrColorValues[0]);
 		console.log(App.arrPlayer);
+		// document.getElementById('redButton').css({opacity: 0.7}) // want opacity of button to change on keydown
 	}
 });
 
@@ -197,7 +219,6 @@ document.addEventListener("keydown", (e) => {		//need to add animation logic for
 		console.log('yellowButton was pressed.');
 		App.arrPlayer.push(App.arrColorValues[1]);
 		console.log(App.arrPlayer);
-
 	}
 });
 
