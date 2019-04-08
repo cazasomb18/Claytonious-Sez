@@ -46,7 +46,7 @@ const App = {
 			console.log(arrAppOutput);
 	},
 	playerInput(){		//each time keystrokes are pressed push that value into array.
-		// let arrPlayer = App.arrPlayer;
+		let arrPlayer = App.arrPlayer;
 		console.log(App.arrPlayer);
 
 //you need logic here that resets App.arrPlayer everytime a new value is added to App.arrApp.
@@ -55,11 +55,12 @@ const App = {
 				console.log(`You managed to do ONE THING RIGHT... I guess...`)
 				//also display this message to the game console msg center...
 				App.gameCounter ++;
+				App.arrPlayer = [];
 				App.playGame();
-			} else if (this.arrAppOutput != this.arrPlayer) {
+			} else if (this.arrApp !== this.arrPlayer) {
 					console.log(`You have ONE JOB!!! You BLEW IT!!!`);
 					//also display this message to the game console msg center...
-					let gameCounter = this.gameCounter;
+					// let gameCounter = this.gameCounter; gamecounter stays the same...
 				}
 		}, 5000/*, p1, p2*/) //timer is working the way intended you have 5 seconds to enter correct input
 
@@ -138,7 +139,6 @@ document.addEventListener("keydown", (e) => {		//need to add animation logic for
 // document.getElementById("nameButton").addEventListener("click", function(){
 // 	document.getElementById("topDisplayContainer").innterHTML = `${#nameButton}`.val()};
 // 	App.playGame()
-
 // })	
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
