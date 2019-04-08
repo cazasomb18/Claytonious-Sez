@@ -13,6 +13,33 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 // sequence();
 
+// "$(document)" ==> jQuery "keydown"
+
+
+
+// seqArrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];
+// macArrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];
+
+// for (i = 0; i < macArrColorValues.length; i++){
+// 	 let macArrCV = macArrColorValues[i];
+// 	 let seqArrCV = seqArrColorValues[i];
+// 	 console.log(macArrCV);
+// 	 console.log(seqArrCV);
+// 	 if (macArrCV === seqArrCV){
+// 	 	console.log('yes')
+// 	 } else {
+// 	 	console.log('no');
+// 	 }
+// };
+
+
+
+// for (j = 0; j < seqArrColorValues.length; j++){
+// 	let seqArrCV = seqArrColorValues[j];
+// 	console.log(seqArrCV);
+// };
+
+// if (macArrColorValues)
 
 
 
@@ -20,7 +47,7 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 
 const App = {
-	timerHandle: 0,	//round will end when timer has ended
+	// timerHandle: 0,	//round will end when timer has ended
 	arrColorValues: ["redButton", "yellowButton", "blueButton", "greenButton"],
 	arrApp: [],
 	arrPlayer: [],
@@ -30,7 +57,6 @@ const App = {
 		// const sequence = new Sequence();
 		//here we need to delcare a variable for the new sequence to refer top
 		this.arrOutput();	//output will display
-		//could I insert a function here to have a timer run while the user enters input??
 
 		this.playerInput();  //input collected from user here
 		// this.winOrLose();		//win/lose() compares arrs and displays msg to console display
@@ -39,29 +65,45 @@ const App = {
 
 	},
 	arrOutput(){
-			let arrAppOutput = App.arrApp;
-			let arrColorValues = App.arrColorValues;		  //jQuery selectors? $""
+			// let arrAppOutput = App.arrApp;
+			// let arrColorValues = App.arrColorValues;	  //jQuery selectors? $""
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
-			this.arrApp.push(arrColorValues[randIntZeroAndThree]);
-			console.log(arrAppOutput);
+			this.arrApp.push(this.arrColorValues[randIntZeroAndThree]);
+			console.log(this.arrApp);
 	},
-	playerInput(){		//each time keystrokes are pressed push that value into array.
-		let arrPlayer = App.arrPlayer;
-		console.log(App.arrPlayer);
-
-//you need logic here that resets App.arrPlayer everytime a new value is added to App.arrApp.
+	playerInput(){		
+		// let arrPlayer = App.arrPlayer;
+		// console.log(App.arrPlayer); //each time keystrokes are pressed push that value into array.
 		setTimeout( function(){
-			if (this.arrAppOutput === this.arrPlayer){
-				console.log(`You managed to do ONE THING RIGHT... I guess...`)
-				//also display this message to the game console msg center...
-				App.gameCounter ++;
-				App.arrPlayer = [];
-				App.playGame();
-			} else if (this.arrApp !== this.arrPlayer) {
-					console.log(`You have ONE JOB!!! You BLEW IT!!!`);
+			for (i = 0; i < App.arrApp.length; i++){
+				let AppOutput = App.arrApp/*[i]*/;
+				let PlayerInput = App.arrPlayer/*[i]*/;
+				if (AppOutput[i] === PlayerInput[i]){
+					console.log(`You managed to do ONE THING RIGHT... sorta...`)
+					App.gameCounter ++;
+					App.arrPlayer = [];
+					App.playGame();
+				} else {
+					if (AppOutput[i] !== PlayerInput[i]){
+					console.log(`You had ONE JOB!! You BLEW IT!!!`)
+					// App.gameCounter === App.gameCounter;
+					}
+
+				}
+
+			}
+		// }
+		// 	if (this.arrApp === this.arrPlayer){
+		// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
+		// 		//also display this message to the game console msg center...
+		// 		App.gameCounter ++;
+		// 		App.arrPlayer = [];  //resets player input BEFORE game round is started again.
+		// 		App.playGame();
+		// 	} else if (this.arrApp !== this.arrPlayer) {
+		// 			console.log(`You had ONE JOB!!! You BLEW IT!!!`);
 					//also display this message to the game console msg center...
 					// let gameCounter = this.gameCounter; gamecounter stays the same...
-				}
+				//}
 		}, 5000/*, p1, p2*/) //timer is working the way intended you have 5 seconds to enter correct input
 
 
