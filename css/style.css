@@ -11,17 +11,26 @@ button {
 }
 
 #screenContainer {
+	display: grid;
+	max-width: 800px;
+	border: 3px solid red;
 
 }
 
 #topDisplayContainer {
+	align-content: center;
+	color: white;
+	padding: 10px;
 	margin: 0 auto;
-	width: 500px;
-	height: 100px;
+	max-width: 600px;
 	border: 3px solid red;
 }
 
+
+
 #topDisplayContainer input {
+	align-content: center;
+	padding: 5px;
 	background-color: black;
 	color: white;
 	border-radius: 8px;
@@ -30,13 +39,13 @@ button {
 }
 
 #levelDisplay {
-	width: 200px;
-	height: 100px;
+	max-width: 75%;
 	border: orange;
 	padding: 10px;
 }
 
 #buttonsContainer {
+	display: flex-box;
 	margin: 0 auto;
   	width: 75%;
   	border: 3px solid green;
@@ -44,10 +53,26 @@ button {
 }
 
 #gameConsoleContainer {
-	display: flex;
-	justify-content: space-between;
+	max-width: 75%;
+	/*justify-content: space-between;*/
 	border: 3px solid green;
 	background-color: black;
+	padding: 10px;
+
+}
+
+#topRow{
+	justify-content: center;
+
+}
+
+#middleRow{
+	align-content: space-between;
+
+}
+
+#thirdRow{
+	justify-content: center;
 
 }
 
@@ -68,7 +93,7 @@ button {
 	margin: 0 auto;
 	margin-top: 10px;
 	padding: 10px;
-	max-width: 350px;
+	max-width: 50%;
 	/*height: 300px;*/
 	border: 3px solid red;
 }
@@ -76,7 +101,7 @@ button {
 #gameMessagesDisplay {
 	margin: 0 auto;
 	padding: 10px;
-	max-width: 300px;
+	max-width: 50%;
 	/*height: 250px;*/
 	border: 3px solid orange;
 }

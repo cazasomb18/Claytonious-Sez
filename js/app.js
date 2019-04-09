@@ -48,6 +48,7 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 const App = {
 	// timerHandle: 0,	//round will end when timer has ended
+					// [$("#redButton"), $("#yellowButton"), $("#blueButton"), $("#greenButton")]
 	arrColorValues: ["redButton", "yellowButton", "blueButton", "greenButton"],
 	arrApp: [],
 	arrPlayer: [],
