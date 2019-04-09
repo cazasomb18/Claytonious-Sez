@@ -29,7 +29,8 @@ const App = {
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
 	timeoutID: null,
 	userName: null, //'' was here previously
-	colorValueIndex: ,/*this.arrColorValues[this.arrColorValues.length-1],*/ //get this to represent nth value in arrApp
+	// colorValueIndex: 4,/*this.arrColorValues[this.arrColorValues.length-1],*/ 
+	//^^get this to represent nth value in arrApp^^
 	playGame(){		//game will run off of this func
 		this.arrOutput();  //output will display
 		// this.colorChange();
@@ -40,34 +41,63 @@ const App = {
 		userName = App.userName;
 		$('#levelDisplay').text("#userNameBox");
 		$('#levelDisplay').val('');
-
-		//^^above code does not accomplish task of displaying userName to levelDisplay Div ^^^
+		// ^^above code does not accomplish task of displaying userName to levelDisplay Div^^^
 		
 	},
 	arrOutput(){
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
-			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])(this.colorChange());
+			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])/*(this.colorChange())*/;
 			console.log(this.arrApp);
 	},
 	//need a variable here that represents the nth (latest) index of 
-	colorChange(colorValueIndex) {
+	colorChange(colorChangeIndex) {  //have variable here that represents button
 		//if nth index of arr.App === "redButton"
-        if (this.colorValueIndex === "redButton"){
+		console.log('color change called with', colorChangeIndex)
+        if (colorChangeIndex === "redButton"){
+        	console.log('red');
             //change background color of '#redButton'
         	$("#redButton").css("backgroundColor", "azure");
         	// //if nth index of arr.App === "yellowButton"
-        } else if (this.colorValueIndex === "yellowButton"){
+        } else if (colorChangeIndex === "yellowButton"){
+        	console.log('yellow');
 			//change background color of '#yellowButton'
         	$("#yellowButton").css("backgroundColor", "azure");
         	//if nth index of arr.App === "blueButton"
-        } else if (this.colorValueIndex === "blueButton"){
+        } else if (colorChangeIndex === "blueButton"){
+        	console.log('blue');
 			//change background color of '#blueButton'
 			$("#blueButton").css("backgroundColor", "azure")
 			//if nth index of arr.App === "greenButton"
-        } else if (this.colorValueIndex === "greenButton"){
+        } else if (colorChangeIndex === "greenButton"){
+        	console.log('green');
 			//change background color of '#greenButton'
         	$("#greenButton").css("backgroundColor", "azure")
         }
+	},
+	resetColors(resetColorIndex){  // make this turn off all colors back @ once
+		console.log('reset color change called with', resetColorIndex);
+		if (resetColorIndex === "redButton"){
+			console.log('red');
+			$("#redButton").css("backgroundColor", "rgb(255,0,0)");
+		} else if (resetColorIndex === "yellowButton"){
+			console.log('yellow');
+			$("#yellowButton").css("backgroundColor", "yellow");
+		} else if (resetColorIndex === "blueButton"){
+			console.log('blue');
+			$("#blueButton").css("backgroundColor", "rgb(0,0,255)");
+		} else if (resetColorIndex === "greenButton"){
+			console.log('green');
+			$("#greenButton").css("backgroundColor", "rgb(0,128,0)")
+		}
+	},
+	showStep(arrIndex) {
+
+		// turn on correct color (use colorChange)
+		// set Timeout
+				// turn off that color -- you could make a function to turn all buttons "off" with CSS
+				// if there is next step -- check arr Index against arr.length
+					// showStep(arrIdx + 1 ) // recursion
+
 	},
 	playerInput() {
 		this.timeoutID = setInterval( () => {
@@ -105,6 +135,9 @@ const App = {
 		// this.startGame() = null;  ??
 	}
 };
+
+
+
 		// number of buttons user has pressed === this.arrPlayer.length
 		// so check the (this.arrPlayer.length - 1)th element of both arrays - CHECK
 		// if they match
@@ -199,10 +232,17 @@ $('#nameButton').on('click', () => {
 	App.playGame();
 });
 
+
+
+
+
+
+
 // const jQueryArrColorValues = $(`${this.arrColorValues}`); 	//trying to... grab colorValues Array
 // console.log(jQueryArrColorValues);							//assign class... and attach to ID of buttons
 // jQueryArrColorValues.addClass('colorValue');				//then manipulate buttons via css style
 // (".colorValue"):eq(0).addClass('yellowButton');			//when new value is pushed into ArrOutput
+
 
 
 // for (let i = 0; i < this.arrColorValues.length-1; i++) {
@@ -213,20 +253,12 @@ $('#nameButton').on('click', () => {
 
 
 
-
-
-
-
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
 													//display `${'#userNameBox.val()'`}name in top display <div>....
 // 	const userName = $('#userNameBox').val();
 // 	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
 // 	App.playGame();
 // });
-
-
-
-
 
 
 
