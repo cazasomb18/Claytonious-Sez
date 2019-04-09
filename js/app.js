@@ -13,6 +13,8 @@ console.log('PROJECT ONE - SCINTILLATING SEQUENCES');
 
 // sequence();
 
+//may need back logic to strictly compare arrays here.
+
 
 
 
@@ -173,17 +175,23 @@ $(document).on('keyup', ((e) => {
 	if (['ArrowLeft'].includes(event.key)){
 		$('#greenButton').css('backgroundColor', 'rgb(0,128,0)')
 	}
-}))
+}));
 
 $('#nameButton').on('click', () => {
 	const userName = $('#userNameBox').val();
 	console.log(`${userName} is ready to play!`)
 	App.playGame();
-})
+});
 
-const jQueryArrColorValues = $(`${App.arrColorValues}`);
-jQueryArrColorValues.addClass('colorValue');
-$(".colorValue")
+const jQueryArrColorValues = $(`${this.arrColorValues}`); 	//trying to... grab colorValues Array
+console.log(jQueryArrColorValues);							//assign class... and attach to ID of buttons
+jQueryArrColorValues.addClass('colorValue');				//then manipulate buttons via css style
+// (".colorValue"):eq(0).addClass('yellowButton');			//when new value is pushed into ArrOutput
+
+
+
+
+
 
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
