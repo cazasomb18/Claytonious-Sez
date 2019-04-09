@@ -29,9 +29,10 @@ const App = {
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
 	timeoutID: null,
 	userName: null, //'' was here previously
+	colorValueIndex: ,/*this.arrColorValues[this.arrColorValues.length-1],*/ //get this to represent nth value in arrApp
 	playGame(){		//game will run off of this func
 		this.arrOutput();  //output will display
-
+		// this.colorChange();
 		this.playerInput();  //input collected from user here
 	},
 	enterName(){
@@ -40,30 +41,33 @@ const App = {
 		$('#levelDisplay').text("#userNameBox");
 		$('#levelDisplay').val('');
 
-		// $('#hungerOutput').text(`${this.petInstance.hunger}`);
-  		// $('#hungerOutput').val('');
+		//^^above code does not accomplish task of displaying userName to levelDisplay Div ^^^
 		
 	},
 	arrOutput(){
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
-			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])/*this.colorChange()*/;
-			// colorChange();
+			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])(this.colorChange());
 			console.log(this.arrApp);
 	},
-	colorChange(){
-		if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'redButton'){
-			$("#redButton").css('backgroundColor', 'azure');
-			//change background color of '#redButton'
-		} if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'yellowButton'){
-			$("#yellowButton").css('backgroundColor', 'azure');
+	//need a variable here that represents the nth (latest) index of 
+	colorChange(colorValueIndex) {
+		//if nth index of arr.App === "redButton"
+        if (this.colorValueIndex === "redButton"){
+            //change background color of '#redButton'
+        	$("#redButton").css("backgroundColor", "azure");
+        	// //if nth index of arr.App === "yellowButton"
+        } else if (this.colorValueIndex === "yellowButton"){
 			//change background color of '#yellowButton'
-		} if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'blueButton'){
-			$("blueButton").css('backgroundColor', 'azure');
+        	$("#yellowButton").css("backgroundColor", "azure");
+        	//if nth index of arr.App === "blueButton"
+        } else if (this.colorValueIndex === "blueButton"){
 			//change background color of '#blueButton'
-		} if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'greenButton'){
-			$("greenButton").css('backgroundColor', 'azure');
+			$("#blueButton").css("backgroundColor", "azure")
+			//if nth index of arr.App === "greenButton"
+        } else if (this.colorValueIndex === "greenButton"){
 			//change background color of '#greenButton'
-		}
+        	$("#greenButton").css("backgroundColor", "azure")
+        }
 	},
 	playerInput() {
 		this.timeoutID = setInterval( () => {
@@ -128,9 +132,6 @@ const App = {
 
 //add events for every key press:  when arrOutput receives new E light up btn
 //add events for every key press:  when arrInput receives new keypress light up btn
-
-
-
 
 $(document).on('keydown',((e) => {
 	if(['ArrowUp'].includes(event.key)){
