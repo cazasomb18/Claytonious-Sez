@@ -55,22 +55,14 @@ const App = {
 	timeoutID: null,
 	userName: '',
 	playGame(){		//game will run off of this func
-		// enterName();
-		// const sequence = new Sequence();
-		//here we need to delcare a variable for the new sequence to refer top
-		// this.arrOutput();	//output will display
-		this.arrOutput();
+		this.arrOutput();  //output will display
 
 		this.playerInput();  //input collected from user here
-		// this.winOrLose();		//win/lose() compares arrs and displays msg to console display
-		
-
 	},
 	enterName(){
+		let userName = this.userName;
 		const $userName = $('#userNameBox').val();
-		$('#userNameContainer').text(`${this.userName}`).val();
-		// $('#nameDisplay').text(`${this.petInstance.name}`).val();
-		
+		$('#topDisplayContainer').text(`${this.userName}`).val();
 	},
 	arrOutput(){
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
@@ -85,29 +77,19 @@ const App = {
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 				console.log("Woaaah! You aren't color-blind!")
 				this.arrOutput();
-				// this.playGame();
 				this.arrPlayer = [];
-
+				this.gameCounter ++;
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
 				clearInterval(this.timeoutID);
 				this.gameReset();
+				this.gameOver();
 			}
 		}, 5000)
 	},
 	gameReset(){
 		console.log("RESET!!!!")
-		// this.playGame();
 	},
-	// clearTimeout(timeoutID){
-
-	// 	// setTimeout(() => {
-	// 	// 	let count = this.setTimeout();
-	// 	// 	if (count === 5000){
-	// 	// 		this.gameOver();
-	// 	// 	}
-	// 	// }, 5000)
-	// },
 	winOrLose(){
 		if (this.arrApp[this.arrApp.length-1] === this.arrPlayer[this.arrPlayer.length-1]){
 
@@ -287,7 +269,7 @@ $(document).on('keyup', ((e) => {
 }))
 
 $('#nameButton').on('click', () => {
-	const userName = $('#userNamebox').val();
+	const userName = $('#userNameBox').val();
 	console.log(`${userName} is ready to play!`)
 	App.playGame();
 })
