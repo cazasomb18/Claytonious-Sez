@@ -40,9 +40,11 @@ const App = {
 	enterName(){
 		let userName = $("#userNameBox");
 		userName = App.userName;
-		$('#levelDisplay').text("#userNameBox");
-		$('#levelDisplay').val('');
+		// $('#levelDisplay').text("#userNameBox");
+		// $('#levelDisplay').val('');
 		// ^^above code does not accomplish task of displaying userName to levelDisplay Div^^^
+		let userNameTwo = $("#userNameBoxTwo");
+		userNameTwo = App.userNameTwo;
 		
 	},
 	arrOutput(){
@@ -53,9 +55,6 @@ const App = {
 	},
 	//need a variable here that represents the nth (latest) index of 
 	colorChange(colorChangeIndex) {  //have variable here that represents button
-		//if nth index of arr.App === "redButton"
-
-		// short pause
 
 		console.log('color change called with', colorChangeIndex)
         if (colorChangeIndex === "redButton"){
@@ -81,7 +80,9 @@ const App = {
 
         setTimeout( function(){
 	        App.resetColors(colorChangeIndex);
-        }, 900)
+        }, 500)
+		//if nth index of arr.App === "redButton"
+		// short pause
 
 	},
 	resetColors(resetColorInd){  // make this turn off all colors back @ once
@@ -103,7 +104,7 @@ const App = {
 			if (this.arrApp[n+1]) { //if next value then..
 				this.showStep(n+1)  //we apply showStep() to next value (n + 1)
 			}
-		}, 1000)  // wait one second then repeat
+		}, 500)  // wait one second then repeat
 
 		// setTimeout()
 		// turn on correct color (use colorChange)
@@ -123,26 +124,34 @@ const App = {
 				console.log("Woaaah! You aren't color-blind!")
 				this.arrOutput();
 				this.arrPlayer = [];
-				this.gameCounter ++;
+				// this.gameCounter ++;
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
 				clearInterval(this.timeoutID);
 				this.gameReset();
 				this.gameOver();
 			}
-		}, 5000)
+		}, 10000)
 	},
-	/*secondPlayerInput(){
+	secondPlayerInput(){
 		this.timeoutIDTwo = setInterval(() => {
 
 			console.log(this.timeoutIDTwo);
 
-			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
-	
-			}
-		})
+			if (this.arrPlayerTwo[this.arrPlayerTwo.length-1] === this.arrApp[this.arrApp.length-1]){
 
-	}*/
+				console.log("Woaaah! You aren't color-blind!");
+				this.arrOutput();
+				this.arrPlayerTwo = [];
+				this.gameCounter ++;
+			} else {
+				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
+				clearInterval(this.timeoutIDTwo);
+				this.gameReset();
+				this.gameOver();
+			}
+		}, 10000)
+	},
 	gameReset(){
 		console.log("RESET!!!!")
 	},
@@ -250,30 +259,74 @@ $(document).on('keyup', ((e) => {
 	}
 }));
 
+$(document).on("keydown", ((e) =>{
+	if (['w'].includes(event.key)){
+		console.log('redButton was pressed.');
+		App.arrPlayerTwo.push(App.arrColorValues[0]);
+		console.log(App.arrPlayerTwo);
+		$('#redButton').css('backgroundColor', 'azure')
+	}
+}));
+
+$(document).on("keyup", (e) => {
+	if(['w'].includes(event.key)){
+		$("#redButton").css("backgroundColor", 'rgb(255,0,0)')
+	}
+});
+
+$(document).on("keydown", ((e) =>{
+	if (['d'].includes(event.key)){
+		console.log('yellowButton was pressed.');
+		App.arrPlayerTwo.push(App.arrColorValues[1]);
+		console.log(App.arrPlayerTwo);
+		$('#yellowButton').css('backgroundColor', 'azure')
+	}
+}));
+
+$(document).on("keyup", (e) => {
+	if(['d'].includes(event.key)){
+		$("#yellowButton").css("backgroundColor", 'yellow')
+	}
+});
+
+$(document).on("keydown", ((e) =>{
+	if (['s'].includes(event.key)){
+		console.log('blueButton was pressed.');
+		App.arrPlayerTwo.push(App.arrColorValues[2]);
+		console.log(App.arrPlayerTwo);
+		$('#blueButton').css('backgroundColor', 'azure')
+	}
+}));
+
+$(document).on("keyup", (e) => {
+	if(['s'].includes(event.key)){
+		$("#blueButton").css("backgroundColor", 'rgb(0,0,255)')
+	}
+});
+
+$(document).on("keydown", ((e) =>{
+	if (['a'].includes(event.key)){
+		console.log('greenButton was pressed.');
+		App.arrPlayerTwo.push(App.arrColorValues[3]);
+		console.log(App.arrPlayerTwo);
+		$('#greenButton').css('backgroundColor', 'azure')
+	}
+}));
+
+$(document).on("keyup", (e) => {
+	if(['s'].includes(event.key)){
+		$("#greenButton").css("backgroundColor", 'rgb(0,128,0)')
+	}
+});
+
 $('#nameButton').on('click', () => {
 	const userName = $('#userNameBox').val();
 	console.log(`${userName} is ready to play!`)
 	App.playGame();
 });
+//^^^add a new button that will start game after each player has entered their name(s)^^^
 
 
-
-
-
-
-
-// const jQueryArrColorValues = $(`${this.arrColorValues}`); 	//trying to... grab colorValues Array
-// console.log(jQueryArrColorValues);							//assign class... and attach to ID of buttons
-// jQueryArrColorValues.addClass('colorValue');				//then manipulate buttons via css style
-// (".colorValue"):eq(0).addClass('yellowButton');			//when new value is pushed into ArrOutput
-
-
-
-// for (let i = 0; i < this.arrColorValues.length-1; i++) {
-// 	const $jQArrColorValues = $("<ul></ul>");
-// 	jQArrColorValues.attr("id", jQArrColorValues[i]);
-
-// }
 
 
 
@@ -283,6 +336,4 @@ $('#nameButton').on('click', () => {
 // 	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
 // 	App.playGame();
 // });
-
-
 
