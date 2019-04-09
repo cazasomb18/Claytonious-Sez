@@ -46,11 +46,14 @@ const App = {
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
 			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])/*(this.colorChange())*/;
 			console.log(this.arrApp);
-			this.showStep(this.arrColorValues[randIntZeroAndThree]);
+			this.showStep(0);
 	},
 	//need a variable here that represents the nth (latest) index of 
 	colorChange(colorChangeIndex) {  //have variable here that represents button
 		//if nth index of arr.App === "redButton"
+
+		// short pause
+
 		console.log('color change called with', colorChangeIndex)
         if (colorChangeIndex === "redButton"){
         	console.log('red');
@@ -71,24 +74,13 @@ const App = {
         	console.log('green');
 			//change background color of '#greenButton'
         	$("#greenButton").css("backgroundColor", "azure")
-        }
+        }			
+
+        setTimeout( function(){
+	        App.resetColors(colorChangeIndex);
+        }, 900)
+
 	},
-	// resetColors(resetColorIndex){  // make this turn off all colors back @ once
-	// 	console.log('reset color change called with', resetColorIndex);
-	// 	if (resetColorIndex === "redButton"){
-	// 		console.log('red');
-	// 		$("#redButton").css("backgroundColor", "rgb(255,0,0)");
-	// 	} else if (resetColorIndex === "yellowButton"){
-	// 		console.log('yellow');
-	// 		$("#yellowButton").css("backgroundColor", "yellow");
-	// 	} else if (resetColorIndex === "blueButton"){
-	// 		console.log('blue');
-	// 		$("#blueButton").css("backgroundColor", "rgb(0,0,255)");
-	// 	} else if (resetColorIndex === "greenButton"){
-	// 		console.log('green');
-	// 		$("#greenButton").css("backgroundColor", "rgb(0,128,0)")
-	// 	}
-	// },
 	resetColors(resetColorInd){  // make this turn off all colors back @ once
 		console.log('reset color change called with', resetColorInd);
 		if (resetColorInd === "redButton" || resetColorInd === "yellowButton" || 
@@ -99,25 +91,24 @@ const App = {
 			$("#greenButton").css("backgroundColor", "rgb(0,128,0");
 		}
 	},
-	showStep(arrIndex) {
-		console.log('showStep called with', arrIndex);
-		//loop over entire array and have the i values displayed here...
-		for (let i = 0; i > this.arrIndex-1; i++){  //arrApp or arrColorValues ... arrIndex
-			arrIndex[i];
-		}
-		this.colorChange(arrIndex);
-		
-		setTimeout( function(){
-				this.resetColors(arrIndex);
-				// if (arrIndex === arrIndex.length)
-			}, 1000)
-		
+	showStep(n) {
+
+
+		setTimeout( ()=> {
+			
+			App.colorChange(this.arrApp[n])
+
+			if (this.arrApp[n+1]) { //if next value then..
+				this.showStep(n+1)  //we apply showStep() to next value (n + 1)
+			}
+		}, 1000)  // wait one second then repeat
+
 		// setTimeout()
 		// turn on correct color (use colorChange)
 		// set Timeout
 		// 		turn off that color -- you could make a function to turn all buttons "off" with CSS
 		// 		if there is next step -- check arr Index against arr.length
-		// 			showStep(arrIdx + 1 ) // recursion
+		// 			showStep(arrIdx + 1) // recursion
 
 	},
 	playerInput() {
@@ -126,7 +117,7 @@ const App = {
 			console.log(this.timeoutID);
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
-				// this.showStep(this.arrApp[this.arrApp.length-1]);
+
 				console.log("Woaaah! You aren't color-blind!")
 				this.arrOutput();
 				this.arrPlayer = [];
