@@ -24,9 +24,12 @@ const App = {
 	arrColorValues: ["redButton", "yellowButton", "blueButton", "greenButton"],
 	arrApp: [],
 	arrPlayer: [],
+	arrPlayerTwo: [],
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
 	timeoutID: null,
-	userName: null, //'' was here previously
+	timeoutIDTwo: null,
+	userName: null, 	//'' was here previously
+	userNameTwo: null,	//'' was here previously
 	// colorValueIndex: 4,/*this.arrColorValues[this.arrColorValues.length-1],*/ 
 	//^^get this to represent nth value in arrApp^^
 	playGame(){		//game will run off of this func
@@ -93,7 +96,6 @@ const App = {
 	},
 	showStep(n) {
 
-
 		setTimeout( ()=> {
 			
 			App.colorChange(this.arrApp[n])
@@ -130,6 +132,17 @@ const App = {
 			}
 		}, 5000)
 	},
+	/*secondPlayerInput(){
+		this.timeoutIDTwo = setInterval(() => {
+
+			console.log(this.timeoutIDTwo);
+
+			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
+	
+			}
+		})
+
+	}*/
 	gameReset(){
 		console.log("RESET!!!!")
 	},
