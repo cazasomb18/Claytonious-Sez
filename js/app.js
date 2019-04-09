@@ -274,7 +274,7 @@ $(document).on('keyup', ((e) => {
 	if(['ArrowUp'].includes(event.key)){
 		$('#redButton').css('backgroundColor', 'rgb(255,0,0)');
 	}
-}))
+}));
 
 $(document).on('keydown',((e) => {
 	if(['ArrowRight'].includes(event.key)){
@@ -289,23 +289,37 @@ $(document).on('keyup', ((e) => {
 	if(['ArrowRight'].includes(event.key)){
 		$('#yellowButton').css('backgroundColor', 'yellow')
 	}
-}))
+}));
 
-$(document).on('keydown', function (e) {
+$(document).on('keydown',(e) => {
 	if (['ArrowDown'].includes(event.key)){
 		console.log('blueButton was pressed.');
 		App.arrPlayer.push(App.arrColorValues[2]);
 		console.log(App.arrPlayer);
+		$('#blueButton').css('backgroundColor', 'azure')
 	}
 });
+
+$(document).on('keyup', ((e) => {
+	if (['ArrowDown'].includes(event.key)){
+		$('#blueButton').css('backgroundColor', 'rgb(0,0,255')
+	}
+}));
 
 $(document).on('keydown', ((e) => {
 	if (['ArrowLeft'].includes(event.key)){
 		console.log('greenButton was pressed.');
 		App.arrPlayer.push(App.arrColorValues[3]);
 		console.log(App.arrPlayer);
+		$('#greenButton').css('backgroundColor', 'azure')
 	}
 }));
+
+$(document).on('keyup', ((e) => {
+	if (['ArrowLeft'].includes(event.key)){
+		$('#greenButton').css('backgroundColor', 'rgb(0,128,0)')
+	}
+}))
 
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
