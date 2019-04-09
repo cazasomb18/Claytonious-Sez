@@ -28,7 +28,7 @@ const App = {
 	arrPlayer: [],
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
 	timeoutID: null,
-	userName: '',
+	userName: null, //'' was here previously
 	playGame(){		//game will run off of this func
 		this.arrOutput();  //output will display
 
@@ -46,8 +46,24 @@ const App = {
 	},
 	arrOutput(){
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
-			this.arrApp.push(this.arrColorValues[randIntZeroAndThree]);
+			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])/*this.colorChange()*/;
+			// colorChange();
 			console.log(this.arrApp);
+	},
+	colorChange(){
+		if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'redButton'){
+			$("#redButton").css('backgroundColor', 'azure');
+			//change background color of '#redButton'
+		} if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'yellowButton'){
+			$("#yellowButton").css('backgroundColor', 'azure');
+			//change background color of '#yellowButton'
+		} if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'blueButton'){
+			$("blueButton").css('backgroundColor', 'azure');
+			//change background color of '#blueButton'
+		} if (this.arrApp.push(this.arrColorValues)[randIntZeroAndThree] === 'greenButton'){
+			$("greenButton").css('backgroundColor', 'azure');
+			//change background color of '#greenButton'
+		}
 	},
 	playerInput() {
 		this.timeoutID = setInterval( () => {
@@ -83,7 +99,6 @@ const App = {
 	gameOver(){
 		console.log('You have failed and the game is over!');
 		// this.startGame() = null;  ??
-
 	}
 };
 		// number of buttons user has pressed === this.arrPlayer.length
@@ -183,10 +198,17 @@ $('#nameButton').on('click', () => {
 	App.playGame();
 });
 
-const jQueryArrColorValues = $(`${this.arrColorValues}`); 	//trying to... grab colorValues Array
-console.log(jQueryArrColorValues);							//assign class... and attach to ID of buttons
-jQueryArrColorValues.addClass('colorValue');				//then manipulate buttons via css style
+// const jQueryArrColorValues = $(`${this.arrColorValues}`); 	//trying to... grab colorValues Array
+// console.log(jQueryArrColorValues);							//assign class... and attach to ID of buttons
+// jQueryArrColorValues.addClass('colorValue');				//then manipulate buttons via css style
 // (".colorValue"):eq(0).addClass('yellowButton');			//when new value is pushed into ArrOutput
+
+
+// for (let i = 0; i < this.arrColorValues.length-1; i++) {
+// 	const $jQArrColorValues = $("<ul></ul>");
+// 	jQArrColorValues.attr("id", jQArrColorValues[i]);
+
+// }
 
 
 
