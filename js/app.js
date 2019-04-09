@@ -53,6 +53,7 @@ const App = {
 	arrPlayer: [],
 	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
 	timeoutID: null,
+	userName: '',
 	playGame(){		//game will run off of this func
 		// enterName();
 		// const sequence = new Sequence();
@@ -66,7 +67,10 @@ const App = {
 
 	},
 	enterName(){
-
+		const $userName = $('#userNameBox').val();
+		$('#userNameContainer').text(`${this.userName}`).val();
+		// $('#nameDisplay').text(`${this.petInstance.name}`).val();
+		
 	},
 	arrOutput(){
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
@@ -222,45 +226,6 @@ const App = {
 //add events for every key press:  when arrOutput receives new E light up btn
 //add events for every key press:  when arrInput receives new keypress light up btn
 
-
-// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-// 	if(['ArrowUp'].includes(event.key)){			// "ArrowUp" === keydown 38.
-// 		console.log('redButton was pressed.');
-// 		App.arrPlayer.push(App.arrColorValues[0]);
-// 		console.log(App.arrPlayer);
-// 		let redButton = document.getElementById('redButton');
-// 	}
-// });
-
-// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-// 	if(['ArrowRight'].includes(event.key)){			// "ArrowRight" === keydown 39;
-// 		console.log('yellowButton was pressed.');
-// 		App.arrPlayer.push(App.arrColorValues[1]);
-// 		console.log(App.arrPlayer);
-// 		let yellowButton = document.getElementById('yellowButton');
-// 	}
-// });
-
-// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-// 	if(['ArrowDown'].includes(event.key)){			// "ArrowDown" === keydown 40;
-// 		console.log('blueButton was pressed.');
-// 		App.arrPlayer.push(App.arrColorValues[2]);
-// 		console.log(App.arrPlayer);
-// 		let blueButton = document.getElementById('blueButton');
-// 		blueButton.CSS({opacity: 0.7})
-// 	}
-// });
-
-// document.addEventListener("keydown", (e) => {		//need to add animation logic for when keypress occurs here
-// 	if(['ArrowLeft'].includes(event.key)){			// "ArrowLeft" === keydown 37
-// 		console.log('greenButton was pressed.');
-// 		App.arrPlayer.push(App.arrColorValues[3]);
-// 		console.log(App.arrPlayer);
-// 		let greenButton = document.getElementById('greenButton');
-// 	}
-// });
-
-
 $(document).on('keydown',((e) => {
 	if(['ArrowUp'].includes(event.key)){
 		console.log('redButton was pressed.');
@@ -321,6 +286,13 @@ $(document).on('keyup', ((e) => {
 	}
 }))
 
+$('#nameButton').on('click', () => {
+	const userName = $('#userNamebox').val();
+	console.log(`${userName} is ready to play!`)
+	App.playGame();
+})
+
+
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
 													//display `${'#userNameBox.val()'`}name in top display <div>....
@@ -328,11 +300,6 @@ $(document).on('keyup', ((e) => {
 // 	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
 // 	App.playGame();
 // });
-
-// document.getElementById("nameButton").addEventListener("click", function(){
-// 	document.getElementById("topDisplayContainer").innterHTML = `${#nameButton}`.val()};
-// 	App.playGame()
-// })	
 
 
 
