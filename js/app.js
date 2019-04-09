@@ -17,38 +17,12 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 
 
 
-// seqArrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];
-// macArrColorValues = ["redButton", "yellowButton", "blueButton", "greenButton"];
-
-// for (i = 0; i < macArrColorValues.length; i++){
-// 	 let macArrCV = macArrColorValues[i];
-// 	 let seqArrCV = seqArrColorValues[i];
-// 	 console.log(macArrCV);
-// 	 console.log(seqArrCV);
-// 	 if (macArrCV === seqArrCV){
-// 	 	console.log('yes')
-// 	 } else {
-// 	 	console.log('no');
-// 	 }
-// };
-
-
-
-// for (j = 0; j < seqArrColorValues.length; j++){
-// 	let seqArrCV = seqArrColorValues[j];
-// 	console.log(seqArrCV);
-// };
-
-// if (macArrColorValues)
-
-
-
 
 
 
 const App = {
 	// timerHandle: 0,	//round will end when timer has ended
-					// [$("#redButton"), $("#yellowButton"), $("#blueButton"), $("#greenButton")]
+				// [$("#redButton"), $("#yellowButton"), $("#blueButton"), $("#greenButton")]
 	arrColorValues: ["redButton", "yellowButton", "blueButton", "greenButton"],
 	arrApp: [],
 	arrPlayer: [],
@@ -62,8 +36,11 @@ const App = {
 	},
 	enterName(){
 		let userName = this.userName;
-		const $userName = $('#userNameBox').val();
-		$('#topDisplayContainer').text(`${this.userName}`).val();
+		$('#')
+
+		// $('#hungerOutput').text(`${this.petInstance.hunger}`);
+  		// $('#hungerOutput').val('');
+		
 	},
 	arrOutput(){
 			const randIntZeroAndThree = Math.floor(Math.random()*4);
@@ -122,81 +99,6 @@ const App = {
 
 
 
-	// winOrLose(){
-	// 	if (App.arrOutput === App.playerInput) {  //win/loose logic and messages.
-	// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
-	// 		App.counter ++;
-	// 	} else {
-	// 		console.log('You had ONE JOB!!! You BLEW IT!!!');
-
-	// 	}
-	// }
-/*};*/
-
-
-
-
-
-
-
-		// setTimeout(() => {
-
-
-
-
-
-			// for (let i = 0; i < this.arrApp.length; i++){
-			// 	let AppOutput = this.arrApp/*[i]*/;
-			// 	let PlayerInput = this.arrPlayer/*[i]*/;
-			// 	if (AppOutput[i] === PlayerInput[i]){
-			// 		// console.log(`You managed to do ONE THING RIGHT... sorta...`)
-			// 		// App.gameCounter ++;
-			// 		// App.arrPlayer = [];
-
-			// 		// App.playGame();
-
-			// 	} else {
-			// 		if (AppOutput[i] !== PlayerInput[i]){
-
-			// 			console.log(`You had ONE JOB!! You BLEW IT!!!`)
-			// 			App.gameCounter === App.gameCounter;  need additional logic here that STOPS TIMER AND ENDS ROUND!!!
-			// 		}
-
-			// 	}
-
-			// } // for
-
-		// }
-		// 	if (this.arrApp === this.arrPlayer){
-		// 		console.log(`You managed to do ONE THING RIGHT... I guess...`)
-		// 		//also display this message to the game console msg center...
-		// 		App.gameCounter ++;
-		// 		App.arrPlayer = [];  //resets player input BEFORE game round is started again.
-		// 		App.playGame();
-		// 	} else if (this.arrApp !== this.arrPlayer) {
-		// 			console.log(`You had ONE JOB!!! You BLEW IT!!!`);
-					//also display this message to the game console msg center...
-					// let gameCounter = this.gameCounter; gamecounter stays the same...
-				//}
-// 		}, 5000/*, p1, p2*/) //timer is working the way intended you have 5 seconds to enter correct input
-
-
-// 	}
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -208,6 +110,9 @@ const App = {
 
 //add events for every key press:  when arrOutput receives new E light up btn
 //add events for every key press:  when arrInput receives new keypress light up btn
+
+
+
 
 $(document).on('keydown',((e) => {
 	if(['ArrowUp'].includes(event.key)){
@@ -275,6 +180,9 @@ $('#nameButton').on('click', () => {
 	App.playGame();
 })
 
+const jQueryArrColorValues = $(`${App.arrColorValues}`);
+jQueryArrColorValues.addClass('colorValue');
+$(".colorValue")
 
 
 // $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
@@ -283,7 +191,6 @@ $('#nameButton').on('click', () => {
 // 	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
 // 	App.playGame();
 // });
-
 
 
 

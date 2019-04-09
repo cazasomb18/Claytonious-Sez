@@ -2,6 +2,7 @@ body {
 	background-color: black;
 }
 
+
 button {
 	color: rgb(0,0,0);
 	font-size: 18px;
@@ -10,33 +11,34 @@ button {
 	border-radius: 25px;
 }
 
+
 #screenContainer {
-	display: grid;
+	display: block;
 	max-width: 800px;
 	border: 3px solid red;
 
 }
 
+
 #topDisplayContainer {
-	align-content: center;
+	/*align-content: center;*/
 	color: white;
 	padding: 10px;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	max-width: 600px;
 	border: 3px solid red;
 }
 
 
-
 #topDisplayContainer input {
-	align-content: center;
+	/*align-content: center;*/
 	padding: 5px;
 	background-color: black;
 	color: white;
 	border-radius: 8px;
-	margin: 0 auto;
-
+	/*margin: 0 auto;*/
 }
+
 
 #levelDisplay {
 	max-width: 75%;
@@ -44,43 +46,50 @@ button {
 	padding: 10px;
 }
 
+
 #buttonsContainer {
-	display: flex-box;
-	margin: 0 auto;
+	display: block;
+	/*margin: 0 auto;*/
   	width: 75%;
   	border: 3px solid green;
   	padding: 10px;
 }
 
+
 #gameConsoleContainer {
+	display: block;
 	max-width: 75%;
-	/*justify-content: space-between;*/
 	border: 3px solid green;
 	background-color: black;
 	padding: 10px;
-
 }
+
 
 #topRow{
-	justify-content: center;
-
+	margin: 0 auto;
+	border: 3px solid green;
 }
+
+
 
 #middleRow{
-	align-content: space-between;
-
+	margin: 20px;
+	border: 3px solid green;
 }
+
 
 #thirdRow{
-	justify-content: center;
-
+	margin: 0 auto;
+	border: 3px solid green;
 }
+
 
 #redButton {
   	border: 3px solid white;
   	padding: 10px;
   	background-color: rgb(255,0,0);
 }
+
 
 #yellowButton {
 	font-weight: 700;
@@ -89,22 +98,23 @@ button {
   	padding: 10px;
 }
 
+
 #programMessagesContainer {
 	margin: 0 auto;
-	margin-top: 10px;
-	padding: 10px;
+	margin-top: 20px;
+	padding: 20px;
 	max-width: 50%;
-	/*height: 300px;*/
 	border: 3px solid red;
 }
+
 
 #gameMessagesDisplay {
 	margin: 0 auto;
 	padding: 10px;
 	max-width: 50%;
-	/*height: 250px;*/
 	border: 3px solid orange;
 }
+
 
 #greenButton {
 	font-weight: 700;
@@ -113,12 +123,12 @@ button {
   	padding: 10px;
 }
 
+
 #blueButton {
   	border: 3px solid white;
   	padding: 10px;
   	background-color: blue;
 }
-
 
 
 
