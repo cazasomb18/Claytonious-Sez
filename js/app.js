@@ -1,4 +1,4 @@
-console.log('PROJECT ONE - CLAYTON COMMANDS');
+console.log('PROJECT ONE - SCINTILLATING SEQUENCES');
 
 // class Sequence {
 // 	constructor() {
@@ -12,8 +12,6 @@ console.log('PROJECT ONE - CLAYTON COMMANDS');
 // const sequence = new Sequence();
 
 // sequence();
-
-// "$(document)" ==> jQuery "keydown"
 
 
 
@@ -35,8 +33,10 @@ const App = {
 		this.playerInput();  //input collected from user here
 	},
 	enterName(){
-		let userName = this.userName;
-		$('#')
+		let userName = $("#userNameBox");
+		userName = App.userName;
+		$('#levelDisplay').text("#userNameBox");
+		$('#levelDisplay').val('');
 
 		// $('#hungerOutput').text(`${this.petInstance.hunger}`);
   		// $('#hungerOutput').val('');
@@ -59,6 +59,7 @@ const App = {
 				this.gameCounter ++;
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
+
 				clearInterval(this.timeoutID);
 				this.gameReset();
 				this.gameOver();
