@@ -17,8 +17,6 @@ button {
 	display: block;
 	margin: 0 auto;
 	max-width: 800px;
-	border: 3px solid red;
-
 }
 
 
@@ -31,9 +29,34 @@ button {
 	padding: 15px;
 	margin: 0 auto;
 	max-width: 600px;
-	border: 3px solid red;
+
 }
 
+#userDisplay{
+	margin: 0 auto;
+	max-width: 300px;
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	background-color: black;
+	height: 30px;
+	line-height: 15px;
+	font-weight: bold;
+}
+
+#userTwoDisplay{
+	margin: 0 auto;
+	max-width: 300px;
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	background-color: black;
+	height: 30px;
+	line-height: 15px;
+	font-weight: bold;
+}
 
 #topDisplayContainer input {
 	font-family: 'Anonymous Pro', monospace;
@@ -43,6 +66,18 @@ button {
 	background-color: black;
 	color: white;
 	border-radius: 7px;
+}
+
+#topDisplayContainer button {
+	background-color: white;
+	color: black;
+	/*margin: 0 auto;*/
+	font-size: 12px;
+	text-align: center;
+/*	padding: 5px;*/
+	border-radius: 7px;
+	height: 45px;
+	width: 45px;
 }
 
 
@@ -67,7 +102,6 @@ button {
 	display: block;
 	margin: 0 auto;
 	max-width: 75%;
-	border: 3px solid green;
 	background-color: black;
 	padding: 10px;
 }
@@ -76,23 +110,12 @@ button {
 #topRow{
 	text-align: center;
 	justify-content: center:;
-	border: 3px solid green;
-}
-
-
-
-#middleRow{
-/*	margin-right: auto;
-	margin-left: auto;*/
-	border: 3px solid green;
 }
 
 
 #thirdRow{
+	margin-top: 125px;
 	text-align: center;
-	/*margin-left: 0 auto;
-	margin-right: 0 auto;*/
-	border: 3px solid green;
 }
 
 
@@ -103,23 +126,15 @@ button {
 }
 
 
-
-
 #programMessagesContainer {
+	font-family: 'Anonymous Pro', monospace;
+	text-align: center;
 	margin: 0 auto;
+	background-color: black;
+	color: white;
 	margin-top: 20px;
 	padding: 20px;
 	max-width: 50%;
-	border: 3px solid red;
-}
-
-
-#gameMessagesDisplay {
-	margin-left: auto;
-	margin-right: auto;
-	padding: 10px;
-	max-width: 50%;
-	border: 3px solid orange;
 }
 
 

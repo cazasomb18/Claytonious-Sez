@@ -25,34 +25,35 @@ const App = {
 	arrApp: [],
 	arrPlayer: [],
 	arrPlayerTwo: [],
-	gameCounter: 0,  //keeps track of the game that is currently in play... or maybe I could use a class constructor to generate a game... hmmm....
-	timeoutID: null,
-	timeoutIDTwo: null,
-	userName: null, 	//'' was here previously
-	userNameTwo: null,	//'' was here previously
-	// colorValueIndex: 4,/*this.arrColorValues[this.arrColorValues.length-1],*/ 
-	//^^get this to represent nth value in arrApp^^
+	playerOneTurn: true,
+	playerTwoTurn: false,
+	gameCounterPOne: 0,  //keeps track of rounds player 1 won
+	gameCounterPTwo: 0,  //keeps track of rounds player 2 won
+	timeoutID: 0,
+	timeoutIDTwo: 0,
+	userName: '', 	//'' was here previously
+	userNameTwo: '',	//'' was here previously
+
 	playGame(){		//game will run off of this func
+		this.displayUserMetrics();
 		this.arrOutput();  //output will display
-		// this.colorChange();
 		this.playerInput();  //input collected from user here
+
 	},
-	enterName(){
-		let userName = $("#userNameBox");
-		userName = App.userName;
-		// $('#levelDisplay').text("#userNameBox");
-		// $('#levelDisplay').val('');
-		// ^^above code does not accomplish task of displaying userName to levelDisplay Div^^^
-		let userNameTwo = $("#userNameBoxTwo");
-		userNameTwo = App.userNameTwo;
-		
+
+	displayUserMetrics(){
+		const $userName = $('#userNameBox').val();
+		$('#userDisplay').text(`Player One: ${$userName}, Score: ${this.gameCounterPOne}`).val();
+		const $userNameTwo = $('#userNameBoxTwo').val();
+		$('#userTwoDisplay').text(`Player Two: ${$userNameTwo}, Score: ${this.gameCounterPTwo}`).val();
 	},
 	arrOutput(){
-			const randIntZeroAndThree = Math.floor(Math.random()*4);
-			this.arrApp.push(this.arrColorValues[randIntZeroAndThree])/*(this.colorChange())*/;
-			console.log(this.arrApp);
-			this.showStep(0);
+		const randIntZeroAndThree = Math.floor(Math.random()*4);
+		this.arrApp.push(this.arrColorValues[randIntZeroAndThree]);
+		console.log(this.arrApp);
+		this.showStep(0);
 	},
+
 	//need a variable here that represents the nth (latest) index of 
 	colorChange(colorChangeIndex) {  //have variable here that represents button
 
@@ -80,7 +81,7 @@ const App = {
 
         setTimeout( function(){
 	        App.resetColors(colorChangeIndex);
-        }, 500)
+        }, 100)
 		//if nth index of arr.App === "redButton"
 		// short pause
 
@@ -104,7 +105,7 @@ const App = {
 			if (this.arrApp[n+1]) { //if next value then..
 				this.showStep(n+1)  //we apply showStep() to next value (n + 1)
 			}
-		}, 500)  // wait one second then repeat
+		}, 200)  // wait half a second then repeat
 
 		// setTimeout()
 		// turn on correct color (use colorChange)
@@ -121,19 +122,22 @@ const App = {
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 
-				console.log("Woaaah! You aren't color-blind!")
+				console.log("Woaaah! You aren't color-blind!");
+				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrOutput();
 				this.arrPlayer = [];
-				// this.gameCounter ++;
+				this.gameCounterPOne ++;
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
+				$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
 				clearInterval(this.timeoutID);
 				this.gameReset();
 				this.gameOver();
 			}
-		}, 10000)
+		}, 8000)
 	},
 	secondPlayerInput(){
+		// this.arrOutput();  //new
 		this.timeoutIDTwo = setInterval(() => {
 
 			console.log(this.timeoutIDTwo);
@@ -141,19 +145,24 @@ const App = {
 			if (this.arrPlayerTwo[this.arrPlayerTwo.length-1] === this.arrApp[this.arrApp.length-1]){
 
 				console.log("Woaaah! You aren't color-blind!");
+				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrOutput();
 				this.arrPlayerTwo = [];
-				this.gameCounter ++;
+				this.gameCounterPTwo ++;
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
+				$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
 				clearInterval(this.timeoutIDTwo);
 				this.gameReset();
 				this.gameOver();
 			}
-		}, 10000)
+		}, 8000)
 	},
 	gameReset(){
 		console.log("RESET!!!!")
+		this.arrApp = [];
+		this.arrPlayer = [];
+		this.arrPlayerTwo = [];
 	},
 	winOrLose(){
 		if (this.arrApp[this.arrApp.length-1] === this.arrPlayer[this.arrPlayer.length-1]){
@@ -165,6 +174,7 @@ const App = {
 	},
 	gameOver(){
 		console.log('You have failed and the game is over!');
+		$("#programMessagesContainer").text("You had ONE JOB!! YOU BLEW IT!!!");
 		// this.startGame() = null;  ??
 	}
 };
@@ -314,7 +324,7 @@ $(document).on("keydown", ((e) =>{
 }));
 
 $(document).on("keyup", (e) => {
-	if(['s'].includes(event.key)){
+	if(['a'].includes(event.key)){
 		$("#greenButton").css("backgroundColor", 'rgb(0,128,0)')
 	}
 });
@@ -322,10 +332,16 @@ $(document).on("keyup", (e) => {
 $('#nameButton').on('click', () => {
 	const userName = $('#userNameBox').val();
 	console.log(`${userName} is ready to play!`)
+});
+
+$('#nameButtonTwo').on('click', () => {
+	const userNameTwo = $('#userNameBoxTwo').val();
+	console.log(`${userNameTwo} is ready to play!`); 
+});
+
+$('#startGame').on('click', () => {
 	App.playGame();
 });
-//^^^add a new button that will start game after each player has entered their name(s)^^^
-
 
 
 
