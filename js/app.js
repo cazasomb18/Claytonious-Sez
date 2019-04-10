@@ -1,4 +1,4 @@
-console.log("PROJECT ONE - SCINTILLATING SEQUENCES");
+	console.log("PROJECT ONE - SCINTILLATING SEQUENCES");
 
 // class Sequence {
 // 	constructor() {
@@ -120,11 +120,11 @@ const App = {
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 
-				clearInterval(this.timeoutID);
 				console.log("Woaaah! You aren't color-blind!");
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrPlayer = [];
 				this.gameCounterPOne ++;
+				clearInterval(this.timeoutID);
 				this.displayUserMetrics();
 				this.arrOutput();
 				this.secondPlayerInput();
@@ -144,11 +144,11 @@ const App = {
 
 			if (this.arrApp[this.arrApp.length-1] === this.arrPlayerTwo[this.arrPlayerTwo.length-1]){
 
-				clearInterval(this.timeoutIDTwo);
 				console.log("Woaaah! You aren't color-blind!");
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrPlayerTwo = [];
 				this.gameCounterPTwo ++;
+				clearInterval(this.timeoutIDTwo);
 				this.displayUserMetrics();
 				this.arrOutput();
 				this.playerInput();
