@@ -125,6 +125,7 @@ const App = {
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrPlayer = [];
 				this.gameCounterPOne ++;
+				this.displayUserMetrics();
 				this.arrOutput();
 				this.secondPlayerInput();
 			} else {
@@ -148,6 +149,7 @@ const App = {
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrPlayerTwo = [];
 				this.gameCounterPTwo ++;
+				this.displayUserMetrics();
 				this.arrOutput();
 				this.playerInput();
 			} else {
@@ -338,13 +340,9 @@ $('#startGame').on('click', () => {
 	App.arrPlayer = [];
 });
 
-
-
-
-// $('#nameButton').on('click', () => {				//need this event listener to: start game @ submit clck
-													//display `${'#userNameBox.val()'`}name in top display <div>....
-// 	const userName = $('#userNameBox').val();
-// 	console.log(`${petName} IS ALIVE!! BE RESPONSIBLE!!`);
-// 	App.playGame();
-// });
+$(document).ready(function(){
+	$("#userStories").click(function(){
+		$(this).hide();
+	});
+});
 
