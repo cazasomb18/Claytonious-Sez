@@ -29,8 +29,8 @@ const App = {
 	playerTwoTurn: false,
 	gameCounterPOne: 0,  //keeps track of rounds player 1 won
 	gameCounterPTwo: 0,  //keeps track of rounds player 2 won
-	timeoutID: 0,
-	timeoutIDTwo: 0,
+	timeoutID: null,
+	timeoutIDTwo: null,
 	userName: '', 	//'' was here previously
 	userNameTwo: '',	//'' was here previously
 
@@ -38,9 +38,7 @@ const App = {
 		this.displayUserMetrics();
 		this.arrOutput();  //output will display
 		this.playerInput();  //input collected from user here
-
 	},
-
 	displayUserMetrics(){
 		const $userName = $('#userNameBox').val();
 		$('#userDisplay').text(`Player One: ${$userName}, Score: ${this.gameCounterPOne}`).val();
@@ -53,7 +51,6 @@ const App = {
 		console.log(this.arrApp);
 		this.showStep(0);
 	},
-
 	//need a variable here that represents the nth (latest) index of 
 	colorChange(colorChangeIndex) {  //have variable here that represents button
 
@@ -81,7 +78,7 @@ const App = {
 
         setTimeout( function(){
 	        App.resetColors(colorChangeIndex);
-        }, 100)
+        }, 300)
 		//if nth index of arr.App === "redButton"
 		// short pause
 
@@ -119,40 +116,45 @@ const App = {
 		this.timeoutID = setInterval( () => {
 
 			console.log(this.timeoutID);
+			const $userName = $('#userNameBox').val();
+			$("#programMessagesContainer").text(`It is now ${$userName}'s turn!`)
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 
+				clearInterval(this.timeoutID);
 				console.log("Woaaah! You aren't color-blind!");
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
-				this.arrOutput();
 				this.arrPlayer = [];
 				this.gameCounterPOne ++;
+				this.arrOutput();
+				this.secondPlayerInput();
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
 				$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
-				clearInterval(this.timeoutID);
 				this.gameReset();
 				this.gameOver();
 			}
 		}, 8000)
 	},
 	secondPlayerInput(){
-		// this.arrOutput();  //new
 		this.timeoutIDTwo = setInterval(() => {
 
 			console.log(this.timeoutIDTwo);
+			const $userNameTwo = $('#userNameBoxTwo').val();
+			$("#programMessagesContainer").text(`It is now ${$userNameTwo}'s turn!`)
 
-			if (this.arrPlayerTwo[this.arrPlayerTwo.length-1] === this.arrApp[this.arrApp.length-1]){
+			if (this.arrApp[this.arrApp.length-1] === this.arrPlayerTwo[this.arrPlayerTwo.length-1]){
 
+				clearInterval(this.timeoutIDTwo);
 				console.log("Woaaah! You aren't color-blind!");
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
-				this.arrOutput();
 				this.arrPlayerTwo = [];
 				this.gameCounterPTwo ++;
+				this.arrOutput();
+				this.playerInput();
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
 				$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
-				clearInterval(this.timeoutIDTwo);
 				this.gameReset();
 				this.gameOver();
 			}
@@ -160,22 +162,15 @@ const App = {
 	},
 	gameReset(){
 		console.log("RESET!!!!")
+		clearInterval(this.timeoutID);
+		clearInterval(this.timeoutIDTwo);
 		this.arrApp = [];
 		this.arrPlayer = [];
 		this.arrPlayerTwo = [];
 	},
-	winOrLose(){
-		if (this.arrApp[this.arrApp.length-1] === this.arrPlayer[this.arrPlayer.length-1]){
-			this.playGame();
-		}
-		else {
-			this.gameOver();
-		}
-	},
 	gameOver(){
 		console.log('You have failed and the game is over!');
 		$("#programMessagesContainer").text("You had ONE JOB!! YOU BLEW IT!!!");
-		// this.startGame() = null;  ??
 	}
 };
 
@@ -341,6 +336,8 @@ $('#nameButtonTwo').on('click', () => {
 
 $('#startGame').on('click', () => {
 	App.playGame();
+	App.arrPlayerTwo = [];
+	App.arrPlayer = [];
 });
 
 
