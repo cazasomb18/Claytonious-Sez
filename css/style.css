@@ -82,10 +82,16 @@ button {
 
 
 #levelDisplay {
+	margin: 0 auto;
+	max-width: 300px;
 	font-family: 'Anonymous Pro', monospace;
-	max-width: 75%;
-	border: orange;
-	padding: 10px;
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	background-color: black;
+	height: 30px;
+	line-height: 15px;
+	font-weight: bold;
 }
 
 

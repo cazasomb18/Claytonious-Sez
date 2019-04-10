@@ -115,9 +115,8 @@ const App = {
 	playerInput() {
 		this.timeoutID = setInterval( () => {
 
+			$("#levelDisplay").text(`It is now player one's turn!`)
 			console.log(this.timeoutID);
-			const $userName = $('#userNameBox').val();
-			$("#programMessagesContainer").text(`It is now ${$userName}'s turn!`)
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 
@@ -140,8 +139,7 @@ const App = {
 		this.timeoutIDTwo = setInterval(() => {
 
 			console.log(this.timeoutIDTwo);
-			const $userNameTwo = $('#userNameBoxTwo').val();
-			$("#programMessagesContainer").text(`It is now ${$userNameTwo}'s turn!`)
+			$("#levelDisplay").text(`It is now player two's turn!`)
 
 			if (this.arrApp[this.arrApp.length-1] === this.arrPlayerTwo[this.arrPlayerTwo.length-1]){
 
