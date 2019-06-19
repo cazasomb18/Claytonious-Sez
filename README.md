@@ -1,7 +1,7 @@
 Scintillating Sequences
 A memory game involving repeating a sequence of lights and patterns with key strokes.
 
-Project One Title - “CLAYTON SEZ”
+Project One Title - “SCINTILLATING SEQUENCES”
 
 MVPs
 
