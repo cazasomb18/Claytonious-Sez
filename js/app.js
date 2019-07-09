@@ -1,20 +1,4 @@
-	console.log("PROJECT ONE - SCINTILLATING SEQUENCES");
-
-// class Sequence {
-// 	constructor() {
-// 		let (this.seqRandInt) = App.randIntZeroAndThree;
-// 		let (this.seqArrColorValues) = App.arrColorValues;
-// 		let seqOutput = (this.arrApp).push(this.seqArrColorValues[this.seqRandInt]);
-// 		console.log(this.seqOutput);
-// 	}
-// };
-
-// const sequence = new Sequence();
-
-// sequence();
-
-// may need back logic to strictly compare arrays here.
-
+console.log("PROJECT ONE - SCINTILLATING SEQUENCES");
 
 
 
@@ -102,21 +86,15 @@ const App = {
 			if (this.arrApp[n+1]) { //if next value then..
 				this.showStep(n+1)  //we apply showStep() to next value (n + 1)
 			}
-		}, 200)  // wait half a second then repeat
+		}, 200)  // wait two tenths of a second then repeat
 
-		// setTimeout()
-		// turn on correct color (use colorChange)
-		// set Timeout
-		// 		turn off that color -- you could make a function to turn all buttons "off" with CSS
-		// 		if there is next step -- check arr Index against arr.length
-		// 			showStep(arrIdx + 1) // recursion
 
 	},
 	playerInput() {
 		this.timeoutID = setInterval( () => {
 
 			$("#levelDisplay").text(`It is now player one's turn!`)
-			console.log(this.timeoutID);
+			// console.log(this.timeoutID);
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 
@@ -193,6 +171,12 @@ const App = {
 
 
 
+		// setTimeout()
+		// turn on correct color (use colorChange)
+		// set Timeout
+		// 		turn off that color -- you could make a function to turn all buttons "off" with CSS
+		// 		if there is next step -- check arr Index against arr.length
+		// 			showStep(arrIdx + 1) // recursion
 
 
 
