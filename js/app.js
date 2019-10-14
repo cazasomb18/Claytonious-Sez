@@ -2,8 +2,6 @@ console.log("PROJECT ONE - SCINTILLATING SEQUENCES");
 
 
 
-
-
 const App = {
 	arrColorValues: ["redButton", "yellowButton", "blueButton", "greenButton"],
 	arrApp: [],
@@ -310,23 +308,24 @@ $(document).on("keyup", (e) => {
 
 $('#nameButton').on('click', () => {
 	const userName = $('#userNameBox').val();
-	console.log(`${userName} is ready to play!`)
+	console.log(`${userName} is ready to play!`);
 });
 
 $('#nameButtonTwo').on('click', () => {
 	const userNameTwo = $('#userNameBoxTwo').val();
-	console.log(`${userNameTwo} is ready to play!`); 
+	console.log(`${userNameTwo} is ready to play!`);
 });
 
 $('#startGame').on('click', () => {
 	App.playGame();
-	App.arrPlayerTwo = [];
 	App.arrPlayer = [];
+	App.arrPlayerTwo = [];
+	$("#userNameContainer").hide();
 });
 
 $(document).ready(function(){
 	$("#userStories").click(function(){
-		$(this).hide();
+		$(this).css('visibility', 'hidden');
 	});
 });
 

@@ -10,12 +10,16 @@
 <body>
 	<div id="screenContainer">
 
-		<div id="topDisplayContainer">SCINTILLATING SEQUENCES
+
+		<div id="topDisplayContainer">
+
+		<h1 class="appTitle">SCINTILLATING SEQUENCES<h1>
+
+			<div id="userDisplay"></div>
+
+			<div id="userTwoDisplay"></div>
 
 			<div id="userNameContainer">
-
-				<div id="userDisplay"></div>
-				<div id="userTwoDisplay"></div>
 
 				<input type="text" id="userNameBox" placeholder="Player One pick name!">
 
@@ -29,42 +33,44 @@
 
 			</div>
 
-		</div>
-
 			<div id="levelDisplay"></div>
 
 		</div>
+
+	</div>
 
 		<div id="gameConsoleContainer">
 
 				<div id="topRow">
 
-					<button id="redButton"> ⬆ </button>
+					<button id="redButton"> &uarr; </button>
 
 				</div>
 
 				<div id="middleRow">
 
+					<button id="greenButton"> &larr; </button>
+
 					<div id="programMessagesContainer"></div>
 
-					<button id="greenButton"> < </button>
-
-
-
-					<button id="yellowButton"> > </button>
+					<button id="yellowButton"> &rarr; </button>
 
 				</div>
 
 				<div id="thirdRow">
 
-					<button id="blueButton"> ⬇ </button>
+					<button id="blueButton"> &darr; </button>
+
+				</div>
 					
 
 				<div id="userStories">
-					<br>
 					<p>You will see a sequence of lights and colors flash on the screen,
-					each user will take a turn replicating the sequence. Player one's arrow keys correspond to the sequence values as do player two's w (up/red), a (left/green), s (down/blue) and d (right/yellow) keys respectively. One wrong move and you FAIL! </p>
-					<br>
+					each user will take a turn replicating the sequence.</p>
+					<p>Player One's arrow keys correspond to the sequence values.</p>
+					<p>For Player Two:<br>'W' = (up/red)<br>'A' = (left/green)<br>'S' = (down/blue)
+					<br>'D' = (right/yellow).</p> 
+					<p>One wrong move and you FAIL!</p>
 				</div>
 
 		</div>
