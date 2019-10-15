@@ -15,8 +15,9 @@ button {
 
 #screenContainer {
 	display: flex;
+	flex-direction: column;
+	max-width: 960px;
 	margin: 0 auto;
-	max-width: 800px;
 }
 
 
@@ -26,7 +27,7 @@ button {
 	font-size: 32px;
 	text-align: center;
 	color: white;
-	padding: 15px;
+	padding: 10px;
 	margin: 0 auto;
 	max-width: 600px;
 }
@@ -45,7 +46,6 @@ button {
 	background-color: black;
 	height: 30px;
 	line-height: 15px;
-	font-weight: bold;
 }
 
 #userTwoDisplay{
@@ -58,7 +58,6 @@ button {
 	background-color: black;
 	height: 30px;
 	line-height: 15px;
-	font-weight: bold;
 }
 
 #topDisplayContainer input {
@@ -71,16 +70,15 @@ button {
 	border-radius: 7px;
 }
 
-#topDisplayContainer button {
+.playBtn {
 	background-color: white;
 	color: black;
-	/*margin: 0 auto;*/
-	font-size: 12px;
+	font-family: 'Anonymous Pro', monospace;
+	font-size: 24px;
 	text-align: center;
-/*	padding: 5px;*/
-	border-radius: 7px;
-	height: 45px;
-	width: 45px;
+	border-radius: 40px;
+	height: 50px;
+	width: 250px;
 }
 
 

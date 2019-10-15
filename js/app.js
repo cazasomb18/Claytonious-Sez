@@ -13,19 +13,19 @@ const App = {
 	gameCounterPTwo: 0,  //keeps track of rounds player 2 won
 	timeoutID: null,
 	timeoutIDTwo: null,
-	userName: '', 	//'' was here previously
-	userNameTwo: '',	//'' was here previously
+	userName: '',
+	userNameTwo: '',
 
 	playGame(){		//game will run off of this func
 		this.displayUserMetrics();
 		this.arrOutput();  //output will display
-		this.playerInput();  //input collected from user here
+		this.playerInput();  //input collected from user
 	},
 	displayUserMetrics(){
 		const $userName = $('#userNameBox').val();
-		$('#userDisplay').text(`Player One: ${$userName}, Score: ${this.gameCounterPOne}`).val();
+		$('#userDisplay').text(`${$userName}, Score: ${this.gameCounterPOne}`).val();
 		const $userNameTwo = $('#userNameBoxTwo').val();
-		$('#userTwoDisplay').text(`Player Two: ${$userNameTwo}, Score: ${this.gameCounterPTwo}`).val();
+		$('#userTwoDisplay').text(`${$userNameTwo}, Score: ${this.gameCounterPTwo}`).val();
 	},
 	arrOutput(){
 		const randIntZeroAndThree = Math.floor(Math.random()*4);
@@ -46,6 +46,7 @@ const App = {
         	console.log('yellow');
 			//change background color of '#yellowButton'
         	$("#yellowButton").css("backgroundColor", "azure");
+        	$("#yellowButton").css("color", "magenta");
         	//if nth index of arr.App === "blueButton"
         } else if (colorChangeIndex === "blueButton"){
         	console.log('blue');
@@ -70,7 +71,8 @@ const App = {
 		if (resetColorInd === "redButton" || resetColorInd === "yellowButton" || 
 			resetColorInd === "blueButton" || resetColorInd === "greenButton"){
 			$("#redButton").css("backgroundColor", "rgb(255,0,0)");
-			$("#yellowButton").css("backgroundColor", "yellow");
+			$("#yellowButton").css("backgroundColor", "rgb(200,200,0)");
+			$("#yellowButton").css("color", "black");
 			$("#blueButton").css("backgroundColor", "rgb(0,0,255)");
 			$("#greenButton").css("backgroundColor", "rgb(0,128,0");
 		}
@@ -88,19 +90,30 @@ const App = {
 
 
 	},
+	playSound() {
+
+	},
 	playerInput() {
+		if (this.playerOneTurn = true) {
+			$("#levelDisplay").text(`It is ${this.userName}'s turn!`)
+		} else {
+			null;
+		}
 		this.timeoutID = setInterval( () => {
 
-			$("#levelDisplay").text(`It is now player one's turn!`)
 			// console.log(this.timeoutID);
 
 			if (this.arrPlayer[this.arrPlayer.length-1] === this.arrApp[this.arrApp.length-1]){
 
+				clearInterval(this.timeoutID);
+
 				console.log("Woaaah! You aren't color-blind!");
+
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrPlayer = [];
 				this.gameCounterPOne ++;
-				clearInterval(this.timeoutID);
+				this.playerOneTurn = false;
+				this.playerTwoTurn = true;
 				this.displayUserMetrics();
 				this.arrOutput();
 				this.secondPlayerInput();
@@ -113,18 +126,27 @@ const App = {
 		}, 8000)
 	},
 	secondPlayerInput(){
+		if (this.playerTwoTurn = true) {
+			$("#levelDisplay").text(`It is ${this.userNameTwo}'s turn!`)
+		} else {
+			null;
+		}
 		this.timeoutIDTwo = setInterval(() => {
 
 			console.log(this.timeoutIDTwo);
-			$("#levelDisplay").text(`It is now player two's turn!`)
+			$("#levelDisplay").text(`It is Player Two's turn!`)
 
 			if (this.arrApp[this.arrApp.length-1] === this.arrPlayerTwo[this.arrPlayerTwo.length-1]){
 
+				clearInterval(this.timeoutIDTwo);
+
 				console.log("Woaaah! You aren't color-blind!");
+
 				$("#programMessagesContainer").text("Woaaah! You aren't color-blind!");
 				this.arrPlayerTwo = [];
 				this.gameCounterPTwo ++;
-				clearInterval(this.timeoutIDTwo);
+				this.playerOneTurn = true;
+				this.playerTwoTurn = false;
 				this.displayUserMetrics();
 				this.arrOutput();
 				this.playerInput();
@@ -308,11 +330,13 @@ $(document).on("keyup", (e) => {
 
 $('#nameButton').on('click', () => {
 	const userName = $('#userNameBox').val();
+	App.userName = $('#userNameBox').val();
 	console.log(`${userName} is ready to play!`);
 });
 
 $('#nameButtonTwo').on('click', () => {
 	const userNameTwo = $('#userNameBoxTwo').val();
+	App.userNameTwo = $('#userNameBoxTwo').val();
 	console.log(`${userNameTwo} is ready to play!`);
 });
 
@@ -321,6 +345,7 @@ $('#startGame').on('click', () => {
 	App.arrPlayer = [];
 	App.arrPlayerTwo = [];
 	$("#userNameContainer").hide();
+	$(".playBtn").hide();
 });
 
 $(document).ready(function(){
