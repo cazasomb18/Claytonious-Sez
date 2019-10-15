@@ -1,7 +1,7 @@
-# Claytonious-Sez
+Scintillating Sequences
 A memory game involving repeating a sequence of lights and patterns with key strokes.
 
-Project One Title - “CLAYTON SEZ”
+Project One Title - “SCINTILLATING SEQUENCES”
 
 MVPs
 
@@ -15,7 +15,7 @@ USER STORIES - users should be able to…
 
  - Read the game prompts at the start of each round in order to know how to play.
  - Insert their name and start game when button clicked.
- - Have arrow keys light up and emit sounds when pressed in order to replicate displayed pattern.
+ - Have arrow keys light up sounds when pressed in order to replicate displayed pattern.
  - Know when they get a pattern correct or incorrect via program “shaming” you or “praising” you.
  - Users take turns trying to replicate different patterns and compare their scores at the end of each round.
 
