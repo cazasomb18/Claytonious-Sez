@@ -119,7 +119,7 @@ const App = {
 				this.secondPlayerInput();
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
-				$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
+				// `$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");`
 				this.gameReset();
 				this.gameOver();
 			}
@@ -151,15 +151,15 @@ const App = {
 				this.arrOutput();
 				this.playerInput();
 			} else {
-				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
-				$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
+				// console.log('You had ONE JOB!!! YOU BLEW IT!!!');
+				// $("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
 				this.gameReset();
 				this.gameOver();
 			}
 		}, 8000)
 	},
 	gameReset(){
-		console.log("RESET!!!!")
+		console.log("RESET GAME!");
 		clearInterval(this.timeoutID);
 		clearInterval(this.timeoutIDTwo);
 		this.arrApp = [];
@@ -167,8 +167,19 @@ const App = {
 		this.arrPlayerTwo = [];
 	},
 	gameOver(){
-		console.log('You have failed and the game is over!');
-		$("#programMessagesContainer").text("You had ONE JOB!! YOU BLEW IT!!!");
+		console.log('THE GAME IS OVER!');
+		if (this.gameCounterPOne > this.gameCounterPTwo) {
+			this.displayUserMetrics();
+			$("#programMessagesContainer").text(`${this.userName} is VICTORIOUS! ${this.userNameTwo} BLEW IT!`);
+		} else if (this.gameCounterPTwo > this.gameCounterPOne) {
+			this.displayUserMetrics();
+			$("#programMessagesContainer").text(`${this.userNameTwo} is VICTORIOUS! ${this.userName} BLEW IT!`);
+		} else {
+			if (this.gameCounterPOne === this.gameCounterPTwo) {
+				this.displayUserMetrics();
+				$("#programMessagesContainer").text(`This game has resulted in a TIE!`)
+			}
+		}
 	}
 };
 
