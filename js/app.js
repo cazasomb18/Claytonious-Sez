@@ -99,6 +99,7 @@ const App = {
 		} else {
 			null;
 		}
+		$('audio#chime')[0].play();
 		this.timeoutID = setInterval( () => {
 
 			// console.log(this.timeoutID);
@@ -119,7 +120,6 @@ const App = {
 				this.secondPlayerInput();
 			} else {
 				console.log('You had ONE JOB!!! YOU BLEW IT!!!');
-				// `$("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");`
 				this.gameReset();
 				this.gameOver();
 			}
@@ -131,6 +131,7 @@ const App = {
 		} else {
 			null;
 		}
+		$('audio#chime')[0].play();
 		this.timeoutIDTwo = setInterval(() => {
 
 			console.log(this.timeoutIDTwo);
@@ -151,8 +152,6 @@ const App = {
 				this.arrOutput();
 				this.playerInput();
 			} else {
-				// console.log('You had ONE JOB!!! YOU BLEW IT!!!');
-				// $("#programMessagesContainer").text("You had ONE JOB!!! YOU BLEW IT!!!");
 				this.gameReset();
 				this.gameOver();
 			}
@@ -167,6 +166,7 @@ const App = {
 		this.arrPlayerTwo = [];
 	},
 	gameOver(){
+		$('audio#buzz')[0].play();
 		console.log('THE GAME IS OVER!');
 		if (this.gameCounterPOne > this.gameCounterPTwo) {
 			this.displayUserMetrics();
@@ -340,12 +340,14 @@ $(document).on("keyup", (e) => {
 });
 
 $('#nameButton').on('click', () => {
+	$('audio#click')[0].play();
 	const userName = $('#userNameBox').val();
 	App.userName = $('#userNameBox').val();
 	console.log(`${userName} is ready to play!`);
 });
 
 $('#nameButtonTwo').on('click', () => {
+	$('audio#click')[0].play();
 	const userNameTwo = $('#userNameBoxTwo').val();
 	App.userNameTwo = $('#userNameBoxTwo').val();
 	console.log(`${userNameTwo} is ready to play!`);

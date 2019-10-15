@@ -36,7 +36,7 @@ button {
 	font-size: 40px;
 }
 
-#userDisplay{
+#userDisplay {
 	margin: 0 auto;
 	max-width: 300px;
 	font-family: 'Anonymous Pro', monospace;
@@ -170,10 +170,3 @@ button {
 	text-align: justify;
 	color: white;
 }
-
-
-
-/*flex-flow: column-reverse;
-flex-wrap: wrap-reverse;
-justify-content: center;
-align-content: space-between;*/
